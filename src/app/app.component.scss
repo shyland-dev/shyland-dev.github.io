@@ -1,1 +1,19 @@
 @import "/src/styles.scss";
+
+main {
+  height: 100%;
+  width: 100%;
+  border: 1px solid $success;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header {
+  border: 1px solid $primary;
+}
+
+footer {
+  border: 1px solid $tertiary;
+}

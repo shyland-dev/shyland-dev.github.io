@@ -13,30 +13,17 @@ $light: #f4f5f8;
 //   src: url("./assets/fonts/Bungee-Regular.ttf");
 // }
 
-html,
-body,
-app-root {
-  margin: 0;
-}
-
-app-root {
+html, body, app-root {
   height: 100%;
   width: 100%;
-}
-
-body {
-  text-align: center;
-  font-family: monospace;
-  overflow-x: hidden;
-}
-
-html, body {
-  max-width: 100%;
-  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
 }
 
 * {
-  font-size: 1.5vmax;
+  // font-size: 1.5vmax;
   font-family: monospace;
   &[theme="dark"] {
     background-color: $dark;
