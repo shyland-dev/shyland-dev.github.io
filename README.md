@@ -1,6 +1,6 @@
-[![pages-build-deployment](https://github.com/shyland.github.io/actions/workflows/pages/pages-build-deployment/badge.svg?branch=gh-pages)](https://github.com/shyland.github.io/actions/workflows/pages/pages-build-deployment)
+[![pages-build-deployment](https://github.com/shyland-dev.github.io/actions/workflows/pages/pages-build-deployment/badge.svg?branch=gh-pages)](https://github.com/shyland-dev.github.io/actions/workflows/pages/pages-build-deployment)
 
-# [shyland.github.io](https://shyland.github.io/)
+# [shyland-dev.github.io](https://shyland-dev.github.io/)
 desc.
 
 ---

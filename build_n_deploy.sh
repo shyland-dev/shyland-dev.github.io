@@ -5,10 +5,10 @@ echo $TITLE 'setup config...'
 echo $TITLE '- - - - - - - - - - - - - - - - - - - - - - - - - -'
 #* vars
 
-PAGE_URL='https://shyland.github.io/'
+PAGE_URL='https://shyland-dev.github.io/'
 echo $TITLE '- PAGE_URL=' $PAGE_URL
 
-PROJECT_NAME='shyland.github.io'
+PROJECT_NAME='shyland-dev.github.io'
 echo $TITLE '- PROJECT_NAME=' $PROJECT_NAME
 
 COMMIT_MESSAGE='`build.sh`'
