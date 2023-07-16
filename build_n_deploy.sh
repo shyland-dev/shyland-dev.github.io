@@ -8,7 +8,7 @@ echo $TITLE '- - - - - - - - - - - - - - - - - - - - - - - - - -'
 PAGE_URL='https://shyland.github.io/'
 echo $TITLE '- PAGE_URL=' $PAGE_URL
 
-PROJECT_NAME='template-ng'
+PROJECT_NAME='shyland.github.io'
 echo $TITLE '- PROJECT_NAME=' $PROJECT_NAME
 
 COMMIT_MESSAGE='`build.sh`'
