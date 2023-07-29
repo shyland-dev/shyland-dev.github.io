@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { AppComponent } from '../../app.component';
-import { DbService } from '../../services/db/db.service';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +11,6 @@ export class HomeComponent implements OnInit {
   title = 'HomeComponent';
 
   constructor(
-    public db: DbService,
     private cdr: ChangeDetectorRef,
     public app: AppComponent
   ) {
@@ -30,9 +28,11 @@ export class HomeComponent implements OnInit {
     this.app.updateView(this.title);
   }
 
-  redirectTo(url: any) {
-    this.app.redirectTo(url, this.title);
+  async redirectTo(url: any) {
+    await this.app.redirectTo(url, this.title);
 
     this.updateView();
   }
+
+  defaultOrder() { return 0;}
 }
