@@ -1,5 +1,13 @@
 <main>
-  <header>header</header>
+  <header>
+    <img src="assets/logo.png" alt="logo"/>
+
+    <h1 (click)="redirectTo('', title)">ShylandDev;</h1>
+
+    <nav *ngIf="allPages != []">
+      <a *ngFor="let page of allPages | keyvalue : defaultOrder" (click)="redirectTo(page.value['path'], title)">{{page.value['path']}}</a>
+    </nav>
+  </header>
 
   <router-outlet></router-outlet>
 
