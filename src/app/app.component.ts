@@ -4,6 +4,7 @@ import { Component, ChangeDetectorRef } from '@angular/core';
 import { DbService } from './services/db/db.service';
 
 import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -12,6 +13,8 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   title = 'AppComponent';
+
+  allPages: any = [];
 
   window = window;
 
@@ -23,8 +26,18 @@ export class AppComponent {
     public db: DbService,
     public router: Router,
     private cdr: ChangeDetectorRef,
+    public location: Location
   ) {
     console.log(`[${this.title}#constructor]`);
+
+    const rawAllPages = this.router.config;
+    console.log(`[${this.title}#constructor] rawAllPages`, rawAllPages);
+
+    this.allPages = rawAllPages.filter((page: any) => {
+      return page.path !== '' && page.path !== '**';
+    });
+
+    console.log(`[${this.title}#constructor] allPages`, this.allPages);
 
     this.redirectTo(this.db.get('last_page') || '', this.title);
 
@@ -49,16 +62,21 @@ export class AppComponent {
     this.cdr.detectChanges;
   }
 
-  redirectTo(url: any, from: any) {
-    console.log(`[${this.title}#redirectTo] ${from} | url`, url);
+  async redirectTo(url: any, from: any) {
+    console.log(`[${this.title}#redirectTo] ${from} | url`, [url]);
 
-    this.router.navigateByUrl(`/${url}`);
+    // { skipLocationChange: true }
+    await this.router.navigateByUrl(`/${url}`);
+
+    if (url == '' || url == 'home') this.window.history.pushState({}, '', '/');
 
     this.db.set('last_page', url);
-    console.log(`[${this.title}#redirectTo] last_page`, this.db.get('last_page'));
+    console.log(`[${this.title}#redirectTo] last_page`, [this.db.get('last_page')]);
 
     this.updateView(this.title);
   }
+
+  defaultOrder() { return 0; }
 
   toggleTheme(theme: any) {
     console.log(`[${this.title}#toggleTheme] theme`, theme);
