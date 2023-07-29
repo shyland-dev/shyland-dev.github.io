@@ -10,6 +10,10 @@ main {
   justify-content: space-between;
 }
 
+router-outlet {
+  display: none;
+}
+
 header {
   border: 1px solid $primary;
 }
