@@ -3,10 +3,17 @@
 :host {
   height: 100%;
   width: 100%;
+  // overflow: auto !important;
 }
 
 main {
+  position: relative;
+  // max-height: 100%;
+  // min-height: 100%;
+  // min-height: 100vh;
   height: 100%;
+  // max-width: 100%;
+  // min-width: 100%;
   width: 100%;
   border: 1px solid $success;
   display: flex;
@@ -20,13 +27,21 @@ router-outlet {
 }
 
 header {
-  position: sticky;
+  // position: sticky;
+  position: fixed;
   box-sizing: border-box;
   border: 1px solid $primary;
+  box-shadow: inset 0px 0px 12px 0px $light;
   width: 100%;
+  max-height: 80px;
+  // max-height: 13%;
+  // max-height: clamp(50px, 13%, 80px);
+  height: 80px;
+  // height: 13%;
+  // height: clamp(50px, 13%, 80px);
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
   background: transparentize($color: #000000, $amount: 0.8);
 
   img {
@@ -35,6 +50,7 @@ header {
     margin: 1%;
     padding: 1%;
     background: transparentize($color: $tertiary, $amount: 0.6);
+    box-shadow: inset 0px 0px 8px 0px $tertiary;
     transition: 0.13s all;
 
     &:hover {
@@ -49,6 +65,7 @@ header {
     padding: 1%;
     background: transparentize($color: $tertiary, $amount: 0.6);
     transition: 0.13s all;
+    box-shadow: inset 0px 0px 8px 0px $tertiary;
 
     &:hover {
       background: transparentize($color: $tertiary, $amount: 0.8);
@@ -62,7 +79,7 @@ header {
 
     a {
       margin: 1%;
-      padding: 2%;
+      padding: 3%;
       width: 100%;
       height: 100%;
       display: flex;
@@ -71,6 +88,7 @@ header {
       border-radius: 8px;
       white-space: nowrap;
       transition: 0.13s all;
+      box-shadow: inset 0px 0px 8px 0px $tertiary;
 
       &:hover {
         background: transparentize($color: $tertiary, $amount: 0.8);
@@ -81,9 +99,21 @@ header {
 }
 
 footer {
+  position: absolute;
+  // position: static;
+  // position: relative;
+  // position: fixed;
+  // position: sticky;
+  // top: 100%;
+  // bottom: calc(150px - 100%);
+  bottom: -150px;
   border: 1px solid $tertiary;
   width: 100%;
+  max-height: 150px;
+  height: 150px;
+  // margin-top: -150px;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+  // box-sizing: border-box;
 }
