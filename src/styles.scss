@@ -20,12 +20,16 @@ html, body {
   margin: 0;
   padding: 0;
   border: 0;
-  overflow: hidden;
+  overflow-x: hidden;
+  // overflow: hidden;
+  // overflow: auto;
+  // box-sizing: border-box;
 }
 
 * {
   font-size: clamp(2vmax, 2vw, 1rem);
   font-family: monospace;
+  transition: 50ms all;
   &[theme="dark"] {
     background-color: $dark;
     color: $light;
@@ -39,7 +43,7 @@ html, body {
 //! CUSTOM SCROLLBAR [START]
 /* width */
 ::-webkit-scrollbar {
-  width: 7px;
+  width: 5px;
 }
 
 /* Track */
