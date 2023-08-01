@@ -7,12 +7,23 @@
   width: 100%;
   // overflow: auto !important;
   // background: $secondary;
+  overflow-y: visible;
+}
+
+#rainbowCanvas {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
 }
 
 main {
   // background: $secondary;
   position: relative;
   // position: absolute;
+  // overflow: hidden;
   // overflow-y: scroll;
   // overflow-y: visible;
   // max-height: 100%;
@@ -51,6 +62,7 @@ header {
   align-items: center;
   justify-content: center;
   background: transparentize($color: #000000, $amount: 0.8);
+  backdrop-filter: blur(5px);
   z-index: 99;
   // overscroll-behavior: contain;
 
@@ -109,10 +121,10 @@ header {
 }
 
 footer {
-  background: $danger;
-  position: absolute;
+  // background: $danger;
+  // position: absolute;
   // position: static;
-  // position: relative;
+  position: relative;
   // position: fixed;
   // position: sticky;
   // top: 100%;
@@ -120,13 +132,17 @@ footer {
   // bottom: -150px;
   bottom: 0;
   // top: calc(0px + 100%);
-  border: 1px solid $tertiary;
+  // border: 1px solid $tertiary;
   width: 100%;
   max-height: 150px;
+  min-height: 150px;
   height: 150px;
   // margin-top: -150px;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+  box-shadow: inset 0px 0px 12px 0px $light;
+  background: transparentize($color: #000000, $amount: 0.8);
+  backdrop-filter: blur(5px);
   // box-sizing: border-box;
 }

@@ -44,16 +44,16 @@ export class AppComponent {
     this.theme = this.db.get('theme') || 'dark';
     this.toggleTheme(this.theme);
 
-    this.toggleMobileMode();
-
     this.window.onresize = () => {
       console.log(`[${this.title}#window.onresize]`);
 
-      this.toggleMobileMode();
+      this.setupRainbowCanvas();
     };
 
     this.window.onload = () => {
       console.log(`[${this.title}#window.onload]`);
+
+      this.setupRainbowCanvas();
     };
   }
 
@@ -90,17 +90,52 @@ export class AppComponent {
     this.updateView(this.title);
   }
 
-  toggleMobileMode() {
-    const width = window.innerWidth;
-    const condition = width < 900;
-    console.log(`[${this.title}#toggleMobileMode] width`, width, condition);
+  setupRainbowCanvas() {
+    console.log(`[${this.title}#setupRainbowCanvas]`);
 
-    if (condition) {
-      this.mobileMode = true;
-    } else {
-      this.mobileMode = false;
+    const canvas = document.getElementById('rainbowCanvas') as HTMLCanvasElement;
+
+    canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth;
+
+    const context = canvas.getContext('2d');
+
+    const font = 'arial';
+    const fontSize = 10;
+    context.font = fontSize + 'px ' + font;
+    const cols = canvas.width / fontSize;
+
+    const charSet = 'SHYLAND'.split('');
+
+    const drops = [];
+    for (let col = 0; col < cols; col++) {
+      drops[col] = Math.floor(Math.random() * canvas.height);
     }
 
-    this.updateView(this.title);
+    const randdomColor = () => {
+      return 'rgb(' +
+        Math.floor(Math.random() * 256) + ',' +
+        Math.floor(Math.random() * 256) + ',' +
+        Math.floor(Math.random() * 256) + ')';
+    };
+
+    const rain = () => {
+      context.fillStyle = 'rgba(0, 0, 0, 0.05)';
+      context.fillRect(0, 0, canvas.width, canvas.height);
+
+      for (let col = 0; col < drops.length; col++) {
+        const char = charSet[Math.floor(Math.random() * charSet.length)];
+        context.fillStyle = randdomColor();
+        context.fillText(char, col * fontSize, drops[col] * fontSize);
+
+        if (Math.random() > 0.99) {
+          drops[col] = 0;
+        }
+
+        drops[col]++;
+      }
+    };
+
+    setInterval(rain, 25);
   }
 }
