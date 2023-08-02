@@ -20,3 +20,7 @@ desc.
     ```bash
     npm run build
     ```
+4. Deploy project (gh-pages)
+    ```bash
+    npm run deploy
+    ```
