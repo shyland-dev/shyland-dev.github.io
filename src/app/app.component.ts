@@ -99,6 +99,7 @@ export class AppComponent {
     canvas.width = window.innerWidth;
 
     const context = canvas.getContext('2d');
+    context.clearRect(0, 0, canvas.width, canvas.height);
 
     const font = 'arial';
     const fontSize = 10;
