@@ -15,6 +15,7 @@ export class AppComponent {
   title = 'AppComponent';
 
   allPages: any = [];
+  currentPage: any = null;
 
   window = window;
 
@@ -69,6 +70,7 @@ export class AppComponent {
 
     if (url == '' || url == 'home') this.window.history.pushState({}, '', '/');
 
+    this.currentPage = url;
     this.db.set('last_page', url);
     console.log(`[${this.title}#redirectTo] last_page`, [this.db.get('last_page')]);
 
