@@ -19,8 +19,7 @@ export class AppComponent {
   window = window;
 
   theme = 'dark';
-
-  mobileMode = false;
+  rainInterval: any;
 
   constructor(
     public db: DbService,
@@ -93,13 +92,14 @@ export class AppComponent {
   setupRainbowCanvas() {
     console.log(`[${this.title}#setupRainbowCanvas]`);
 
+    clearInterval(this.rainInterval);
+
     const canvas = document.getElementById('rainbowCanvas') as HTMLCanvasElement;
 
     canvas.height = window.innerHeight;
     canvas.width = window.innerWidth;
 
     const context = canvas.getContext('2d');
-    context.clearRect(0, 0, canvas.width, canvas.height);
 
     const font = 'arial';
     const fontSize = 10;
@@ -137,6 +137,7 @@ export class AppComponent {
       }
     };
 
-    setInterval(rain, 25);
+    this.rainInterval = setInterval(rain, 25);
+    console.log(`[${this.title}#setupRainbowCanvas] rainInterval`, this.rainInterval);
   }
 }
