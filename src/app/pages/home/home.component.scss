@@ -1,46 +1,17 @@
 @import "/src/styles.scss";
 
 :host {
-  // background: $warning;
-  // position: absolute;
   position: relative;
-  // height: 100%;
   height: max-content;
-  // height: 100vh;
-  // max-height: calc(100% - 80px - 150px);
-  // max-height: 100%;
-  // min-height: 100%;
-  // min-height: max-content;
   width: 100%;
-  // overflow: auto;
-  // overflow: visible;
-  // overflow-y: auto;
-  // overflow-y: hidden;
   overflow-y: visible;
-  // overflow-y: scroll;
-  // box-sizing: border-box;
-  // box-sizing: content-box;
-  margin-top: 80px;
-  // margin-bottom: 150px;
-  // padding-top: 80px + 5px;
+  margin-top: 100px;
   padding-top: 5px;
   padding-bottom: 5px;
-  // overflow: hidden;
-  // scroll-margin-top: 80px;
-  // &::-webkit-scrollbar {
-  //   scroll-margin-top: 80px;
-  // }
+  color: $light;
 }
 
 #content {
-  // position: absolute;
   height: 100%;
-  // max-height: 100%;
-  // min-height: 100%;
   width: 100%;
-  // overflow: auto;
-  // overflow-y: hidden;
-  // overflow-y: scroll;
-  // overflow-y: visible;
-  // box-sizing: content-box;
 }
