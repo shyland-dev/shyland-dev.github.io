@@ -54,7 +54,6 @@ header {
     height: 85px;
     width: 85px;
     color: $light;
-
     &:hover {
       background: transparentize($color: $tertiary, $amount: 0.8);
       cursor: pointer;
@@ -69,7 +68,6 @@ header {
     transition: 0.13s all;
     box-shadow: inset 0px 0px 8px 0px $tertiary;
     color: $light;
-
     &:hover {
       background: transparentize($color: $tertiary, $amount: 0.8);
       cursor: pointer;
@@ -92,10 +90,16 @@ header {
       white-space: nowrap;
       transition: 0.13s all;
       box-shadow: inset 0px 0px 8px 0px $tertiary;
-
       &:hover {
         background: transparentize($color: $tertiary, $amount: 0.8);
         cursor: pointer;
+      }
+      &[isActive="true"] {
+        background: transparentize($color: $secondary, $amount: 0.6);
+        &:hover {
+          background: transparentize($color: $secondary, $amount: 0.8);
+          cursor: pointer;
+        }
       }
     }
   }
