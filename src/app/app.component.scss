@@ -31,75 +31,78 @@ router-outlet {
 
 header {
   position: fixed;
-  box-sizing: border-box;
-  box-shadow: inset 0px 0px 12px 0px $light;
+  // box-shadow: inset 0px 0px 12px 0px $light;
   width: 100%;
   max-height: 100px;
   height: 100px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  background: transparentize($color: #000000, $amount: 0.8);
+  justify-content: space-around;
+  background: transparentize($color: $void, $amount: 0.8);
   backdrop-filter: blur(5px);
+  border-bottom: 1px solid $medium;
   z-index: 99;
 
-  img {
-    // border-radius: 5px;
-    border-radius: 50%;
-    margin: 1%;
-    padding: 0.2%;
-    background: transparentize($color: $light, $amount: 0.6);
-    box-shadow: inset 0px 0px 2px 1px $light;
-    transition: 0.3s all;
-    height: 85px;
-    width: 85px;
+  section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: $light;
+    border: 1px solid $void;
+    border-radius: 10px;
+    transition: 0.3s all;
     &:hover {
       background: transparentize($color: $light, $amount: 0.8);
+      border: 1px solid $light;
       cursor: pointer;
     }
-  }
 
-  h1 {
-    border-radius: 5px;
-    margin: 1%;
-    padding: 1%;
-    background: transparentize($color: $light, $amount: 0.6);
-    transition: 0.3s all;
-    box-shadow: inset 0px 0px 2px 1px $light;
-    color: $light;
-    &:hover {
-      background: transparentize($color: $light, $amount: 0.8);
-      cursor: pointer;
+    img {
+      border-radius: 50%;
+      // max-height: 85px;
+      max-width: 80px;
+      // width: 85px;
+      // width: clamp(60px, 4vw, 85px);
+      // width: 13vmin;
+      width: 11vmin;
+      // width: clamp(7vmin, 13vmin, 85px);
+      // height: 85px;
+      // height: clamp(60px, 4vw, 85px);
+      // height: 2vmin;
+      height: auto;
+    }
+
+    h1 {
+      padding-right: 5%;
+      // font-size: 1em;
+      font-size: clamp(16px, 4vw, 24px);
     }
   }
 
   nav {
     display: flex;
     align-items: center;
+    justify-content: center;
 
     a {
+      font-size: clamp(10px, 4vw, 20px);
       margin: 1%;
       padding: 3%;
       width: 100%;
       height: 100%;
       display: flex;
-      background: transparentize($color: $light, $amount: 0.6);
-      color: $light;
-      border-radius: 5px;
+      color: $medium;
+      border-radius: 10px;
+      border: 1px solid $void;
       white-space: nowrap;
       transition: 0.3s all;
-      box-shadow: inset 0px 0px 2px 1px $light;
       &:hover {
-        background: transparentize($color: $light, $amount: 0.8);
+        background: transparentize($color: $medium, $amount: 0.8);
+        border: 1px solid $light;
         cursor: pointer;
       }
       &[isActive="true"] {
-        background: transparentize($color: $medium, $amount: 0.6);
-        &:hover {
-          background: transparentize($color: $medium, $amount: 0.8);
-          cursor: pointer;
-        }
+        color: $light;
       }
     }
   }
@@ -115,8 +118,9 @@ footer {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  box-shadow: inset 0px 0px 12px 0px $light;
-  background: transparentize($color: #000000, $amount: 0.8);
+  // box-shadow: inset 0px 0px 12px 0px $light;
+  border-top: 1px solid $medium;
+  background: transparentize($color: $void, $amount: 0.8);
   backdrop-filter: blur(5px);
   color: $light;
 }

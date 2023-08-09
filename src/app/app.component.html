@@ -2,9 +2,11 @@
 
 <main>
   <header>
-    <img src="assets/IMGs/shyland-icon_inverted.png" alt="logo" (click)="redirectTo('', title)" />
+    <section (click)="redirectTo('', title)">
+      <img src="assets/IMGs/shyland-icon_inverted.png" alt="logo" />
 
-    <h1 (click)="redirectTo('', title)">ShylandDev;</h1>
+      <h1>ShylandDev;</h1>
+    </section>
 
     <nav *ngIf="allPages != []">
       <a *ngFor="let page of allPages | keyvalue : defaultOrder" [attr.isActive]="currentPage == page.value['path']" (click)="redirectTo(page.value['path'], title)">{{page.value['path']}}</a>
