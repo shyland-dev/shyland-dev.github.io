@@ -13,7 +13,9 @@ $light: #f4f5f8;
 //   src: url("./assets/fonts/Bungee-Regular.ttf");
 // }
 
-html, body, app-root {
+html,
+body,
+app-root {
   height: 100%;
   width: 100%;
   display: flex;
@@ -37,20 +39,46 @@ html, body, app-root {
 }
 
 ::-webkit-scrollbar-track {
-  background: $medium;
+  background: $dark;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: $tertiary;
+  background: $light;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: $dark;
+  background: $medium;
 }
 //! CUSTOM SCROLLBAR [FINISH]
 
 //! CUSTOM BUTTON [START]
-//TODO
+.shy-btn {
+  border-radius: 5px;
+  margin: 1%;
+  padding: 1%;
+  background: transparentize($color: $light, $amount: 0.6);
+  box-shadow: inset 0px 0px 2px 1px $light;
+  transition: 0.3s all;
+  color: $light;
+  &:hover {
+    background: transparentize($color: $light, $amount: 0.8);
+    cursor: pointer;
+  }
+  &[isActive="true"] {
+    background: transparentize($color: $medium, $amount: 0.6);
+    &:hover {
+      background: transparentize($color: $medium, $amount: 0.8);
+      cursor: pointer;
+    }
+  }
+  &[isDisabled="true"] {
+    background: transparentize($color: $dark, $amount: 0.6);
+    &:hover {
+      background: transparentize($color: $dark, $amount: 0.8);
+      cursor: not-allowed;
+    }
+  }
+}
 //! CUSTOM BUTTON [END]
 
 //! CUSTOM INPUT [START]
