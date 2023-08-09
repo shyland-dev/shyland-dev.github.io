@@ -34,7 +34,11 @@ export class AppComponent {
     console.log(`[${this.title}#constructor] rawAllPages`, rawAllPages);
 
     this.allPages = rawAllPages.filter((page: any) => {
-      return page.path !== '' && page.path !== '**';
+      return (
+        page.path !== '' &&
+        page.path !== '**' &&
+        page.path !== 'home'
+      );
     });
 
     console.log(`[${this.title}#constructor] allPages`, this.allPages);
