@@ -1,3 +1,4 @@
+$void: #ffffff00;
 $primary: #3880ff;
 $secondary: #3dc2ff;
 $tertiary: #5260ff;
@@ -28,9 +29,19 @@ app-root {
 }
 
 * {
-  font-size: clamp(1vmax, 1.8vmax, 2.5vmax);
+  // font-size: clamp(1vmax, 1.8vmax, 2.5vmax);
   font-family: monospace;
   transition: 50ms all;
+}
+
+body {
+  font-size: 16px;
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
 }
 
 //! CUSTOM SCROLLBAR [START]
