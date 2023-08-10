@@ -3,7 +3,7 @@
 <main>
   <header>
     <section (click)="redirectTo('', title)">
-      <img src="assets/IMGs/shyland-icon_inverted.png" alt="logo" />
+      <img src="assets/IMGs/shyland-icon_inverted.png" alt="icon" />
 
       <h1>ShylandDev;</h1>
     </section>
@@ -15,5 +15,81 @@
 
   <router-outlet></router-outlet>
 
-  <footer>footer</footer>
+  <footer>
+    <div class="footer-wrapper">
+      <div id="logoDiv">
+        <img src="assets/IMGs/shyland.png" alt="logo" />
+      </div>
+
+      <div id="emailDiv">
+        <p>Subscribe to our newsletter</p>
+
+        <div>
+          <input type="email">
+
+          <button type="submit">Subscribe</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-wrapper">
+      <div id="pageDiv">
+        <ul *ngIf="allPages != []">
+          <li *ngFor="let page of allPages | keyvalue : defaultOrder" [attr.isActive]="currentPage == page.value['path']" (click)="redirectTo(page.value['path'], title)">
+            <a>
+              {{page.value['path']}}
+            </a>
+          </li>
+        </ul>
+
+        <ul *ngIf="allPages != []">
+          <li *ngFor="let page of allPages | keyvalue : defaultOrder" [attr.isActive]="currentPage == page.value['path']" (click)="redirectTo(page.value['path'], title)">
+            <a>
+              {{page.value['path']}}
+            </a>
+          </li>
+        </ul>
+
+        <ul *ngIf="allPages != []">
+          <li *ngFor="let page of allPages | keyvalue : defaultOrder" [attr.isActive]="currentPage == page.value['path']" (click)="redirectTo(page.value['path'], title)">
+            <a>
+              {{page.value['path']}}
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div id="socialDiv">
+        <a href="#" target="_blank">
+          <img src="assets/SVGs/logo-github.svg" alt="github" />
+        </a>
+
+        <a href="#" target="_blank">
+          <img src="assets/SVGs/logo-instagram.svg" alt="instagram" />
+        </a>
+
+        <a href="#" target="_blank">
+          <img src="assets/SVGs/logo-linkedin.svg" alt="linkedin" />
+        </a>
+
+        <a href="#" target="_blank">
+          <img src="assets/SVGs/logo-discord.svg" alt="discord" />
+        </a>
+
+        <a href="#" target="_blank">
+          <img src="assets/SVGs/logo-youtube.svg" alt="youtube" />
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-wrapper">
+      <div id="licenseDiv">
+        <p>&#169; 2023 ShylandDev; All rights reserved.</p>
+
+        <a>Terms of Service</a>
+
+        <a>Privacy Policy</a>
+      </div>
+    </div>
+  </footer>
 </main>
