@@ -17,3 +17,24 @@
   height: 100%;
   width: 100%;
 }
+
+p.custom {
+  // font-size: $base;
+  font-size: calc(var(--base) * 7);
+}
+
+img.custom {
+  // width: $base;
+  width: calc(var(--base) * 40);
+  // height: $base;
+  height: calc(var(--base) * 4);
+}
+
+// p.custom {
+//   font-size: var(--base);
+// }
+
+// img.custom {
+//   width: var(--base);
+//   height: var(--base);
+// }

@@ -9,7 +9,15 @@ $dark: #222428;
 $medium: #92949c;
 $light: #f4f5f8;
 
+:root {
+  --base: 1vmax;
+}
+
 @media (orientation: portrait) {
+  :root {
+    --base: 1vh;
+  }
+
   $base: 1vh;
 
   //? Responsive Texts [START]
@@ -61,6 +69,10 @@ $light: #f4f5f8;
 }
 
 @media (orientation: landscape) {
+  :root {
+    --base: 1vw;
+  }
+
   $base: 1vw;
 
   //? Responsive Texts [START]
