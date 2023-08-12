@@ -13,38 +13,38 @@ $light: #f4f5f8;
   $base: 1vh;
 
   //? Responsive Texts [START]
-  $txt-small: 1vh;
-  $txt-medium: 1.5vh;
-  $txt-large: 2vh;
+  $txt-small: calc($base * 1);
+  $txt-medium: calc($base * 2);
+  $txt-large: calc($base * 3);
 
   * {
-    &[shyTxtSize="small"] {
+    &[shy-txt_size="small"] {
       font-size: $txt-small;
     }
-    &[shyTxtSize="medium"] {
+    &[shy-txt_size="medium"] {
       font-size: $txt-medium;
     }
-    &[shyTxtSize="large"] {
+    &[shy-txt_size="large"] {
       font-size: $txt-large;
     }
   }
   //? Responsive Texts [END]
 
   //? Responsive Images [START]
-  $img-small: 1vh;
-  $img-medium: 1.5vh;
-  $img-large: 2vh;
+  $img-small: calc($base * 3);
+  $img-medium: calc($base * 6);
+  $img-large: calc($base * 9);
 
   * {
-    &[shyImgSize="small"] {
+    &[shy-img_size="small"] {
       width: $img-small;
       height: $img-small;
     }
-    &[shyImgSize="medium"] {
+    &[shy-img_size="medium"] {
       width: $img-medium;
       height: $img-medium;
     }
-    &[shyImgSize="large"] {
+    &[shy-img_size="large"] {
       width: $img-large;
       height: $img-large;
     }
@@ -52,8 +52,10 @@ $light: #f4f5f8;
   //? Responsive Images [END]
 
   * {
-    &[shyTest="true"] {
-      font-size: calc($txt-medium + 0px);
+    &[shy-test="true"] {
+      &::after {
+        content: "portrait-#{$base}";
+      }
     }
   }
 }
@@ -62,38 +64,38 @@ $light: #f4f5f8;
   $base: 1vw;
 
   //? Responsive Texts [START]
-  $txt-small: 1vw;
-  $txt-medium: 1.5vw;
-  $txt-large: 2vw;
+  $txt-small: calc($base * 1);
+  $txt-medium: calc($base * 2);
+  $txt-large: calc($base * 3);
 
   * {
-    &[shyTxtSize="small"] {
+    &[shy-txt_size="small"] {
       font-size: $txt-small;
     }
-    &[shyTxtSize="medium"] {
+    &[shy-txt_size="medium"] {
       font-size: $txt-medium;
     }
-    &[shyTxtSize="large"] {
+    &[shy-txt_size="large"] {
       font-size: $txt-large;
     }
   }
   //? Responsive Texts [END]
 
   //? Responsive Images [START]
-  $img-small: 1vw;
-  $img-medium: 1.5vw;
-  $img-large: 2vw;
+  $img-small: calc($base * 3);
+  $img-medium: calc($base * 6);
+  $img-large: calc($base * 9);
 
   * {
-    &[shyImgSize="small"] {
+    &[shy-img_size="small"] {
       width: $img-small;
       height: $img-small;
     }
-    &[shyImgSize="medium"] {
+    &[shy-img_size="medium"] {
       width: $img-medium;
       height: $img-medium;
     }
-    &[shyImgSize="large"] {
+    &[shy-img_size="large"] {
       width: $img-large;
       height: $img-large;
     }
@@ -101,8 +103,10 @@ $light: #f4f5f8;
   //? Responsive Images [END]
 
   * {
-    &[shyTest="true"] {
-      font-size: calc($txt-medium + 0px);
+    &[shy-test="true"] {
+      &::after {
+        content: "landscape-#{$base}";
+      }
     }
   }
 }
@@ -130,16 +134,6 @@ app-root {
   // font-size: clamp(1vmax, 1.8vmax, 2.5vmax);
   font-family: monospace;
   transition: 50ms all;
-}
-
-body {
-  font-size: 16px;
-}
-
-@media (max-width: 768px) {
-  body {
-    font-size: 14px;
-  }
 }
 
 //! CUSTOM SCROLLBAR [START]
