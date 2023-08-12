@@ -9,6 +9,100 @@ $dark: #222428;
 $medium: #92949c;
 $light: #f4f5f8;
 
+@media (orientation: portrait) {
+  //? Responsive Texts [START]
+  $txt-small: 1vh;
+  $txt-medium: 1.5vh;
+  $txt-large: 2vh;
+
+  * {
+    &[shyTxtSize="small"] {
+      font-size: $txt-small;
+    }
+    &[shyTxtSize="medium"] {
+      font-size: $txt-medium;
+    }
+    &[shyTxtSize="large"] {
+      font-size: $txt-large;
+    }
+  }
+  //? Responsive Texts [END]
+
+  //? Responsive Images [START]
+  $img-small: 1vh;
+  $img-medium: 1.5vh;
+  $img-large: 2vh;
+
+  * {
+    &[shyImgSize="small"] {
+      width: $img-small;
+      height: $img-small;
+    }
+    &[shyImgSize="medium"] {
+      width: $img-medium;
+      height: $img-medium;
+    }
+    &[shyImgSize="large"] {
+      width: $img-large;
+      height: $img-large;
+    }
+  }
+  //? Responsive Images [END]
+
+  * {
+    &[shyTest="true"] {
+      font-size: calc($txt-medium + 0px);
+    }
+  }
+}
+
+@media (orientation: landscape) {
+  //? Responsive Texts [START]
+  $txt-small: 1vw;
+  $txt-medium: 1.5vw;
+  $txt-large: 2vw;
+
+  * {
+    &[shyTxtSize="small"] {
+      font-size: $txt-small;
+    }
+    &[shyTxtSize="medium"] {
+      font-size: $txt-medium;
+    }
+    &[shyTxtSize="large"] {
+      font-size: $txt-large;
+    }
+  }
+  //? Responsive Texts [END]
+
+  //? Responsive Images [START]
+  $img-small: 1vw;
+  $img-medium: 1.5vw;
+  $img-large: 2vw;
+
+  * {
+    &[shyImgSize="small"] {
+      width: $img-small;
+      height: $img-small;
+    }
+    &[shyImgSize="medium"] {
+      width: $img-medium;
+      height: $img-medium;
+    }
+    &[shyImgSize="large"] {
+      width: $img-large;
+      height: $img-large;
+    }
+  }
+  //? Responsive Images [END]
+
+  * {
+    &[shyTest="true"] {
+      font-size: calc($txt-medium + 0px);
+    }
+  }
+}
+
 // @font-face {
 //   font-family: "Bungee";
 //   src: url("./assets/fonts/Bungee-Regular.ttf");
