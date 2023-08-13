@@ -1,26 +1,26 @@
-#! title preset
-TITLE='[build_n_deploy.sh]'
+#? TITLE && BRANCH setup
+TITLE="[build_n_deploy.sh]"
+BRANCH_NAME=$(git branch --show-current)
 
-echo $TITLE 'setup config...'
-echo $TITLE '- - - - - - - - - - - - - - - - - - - - - - - - - -'
+echo $TITLE "setup config..."
+echo $TITLE "- - - - - - - - - - - - - - - - - - - - - - - - - -"
 #* vars
 
-PAGE_URL='https://shyland-dev.github.io/'
-echo $TITLE '- PAGE_URL=' $PAGE_URL
+PAGE_URL="https://shyland-dev.github.io/"
+echo $TITLE "- PAGE_URL=" $PAGE_URL
 
-PROJECT_NAME='shyland-dev.github.io'
-echo $TITLE '- PROJECT_NAME=' $PROJECT_NAME
+PROJECT_NAME="shyland-dev.github.io"
+echo $TITLE "- PROJECT_NAME=" $PROJECT_NAME
 
-COMMIT_MESSAGE='`build_n_deploy.sh`'
-echo $TITLE '- COMMIT_MESSAGE=' $COMMIT_MESSAGE
+COMMIT_MESSAGE='`'"${BRANCH_NAME}"'`'
+echo $TITLE "- COMMIT_MESSAGE=" $COMMIT_MESSAGE
 
-echo $TITLE '- - - - - - - - - - - - - - - - - - - - - - - - - -'
-echo $TITLE 'setup config done!'
+echo $TITLE "- - - - - - - - - - - - - - - - - - - - - - - - - -"
+echo $TITLE "setup config done!"
 
 #* main
-echo $TITLE 'run'
-# bash packages.sh
+echo $TITLE "run"
 ng build --base-href $PAGE_URL
 npx angular-cli-ghpages --dir=dist/$PROJECT_NAME --message=$COMMIT_MESSAGE
 
-echo $TITLE 'finished.'
+echo $TITLE "finished."

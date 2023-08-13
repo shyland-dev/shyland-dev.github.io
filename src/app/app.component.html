@@ -9,7 +9,7 @@
     </section>
 
     <nav *ngIf="allPages != []">
-      <a *ngFor="let page of allPages | keyvalue : defaultOrder" [attr.isActive]="currentPage == page.value['path']" (click)="redirectTo(page.value['path'], title)">{{page.value['path']}}</a>
+      <a shy-txt_size="medium" *ngFor="let page of allPages | keyvalue : defaultOrder" [attr.isActive]="currentPage == page.value['path']" (click)="redirectTo(page.value['path'], title)">{{page.value['path']}}</a>
     </nav>
   </header>
 

@@ -9,6 +9,120 @@ $dark: #222428;
 $medium: #92949c;
 $light: #f4f5f8;
 
+:root {
+  --base: 1vmax;
+}
+
+@media (orientation: portrait) {
+  :root {
+    --base: 1vh;
+  }
+
+  $base: 1vh;
+
+  //? Responsive Texts [START]
+  $txt-small: calc($base * 1);
+  $txt-medium: calc($base * 2);
+  $txt-large: calc($base * 3);
+
+  * {
+    &[shy-txt_size="small"] {
+      font-size: $txt-small;
+    }
+    &[shy-txt_size="medium"] {
+      font-size: $txt-medium;
+    }
+    &[shy-txt_size="large"] {
+      font-size: $txt-large;
+    }
+  }
+  //? Responsive Texts [END]
+
+  //? Responsive Images [START]
+  $img-small: calc($base * 3);
+  $img-medium: calc($base * 6);
+  $img-large: calc($base * 9);
+
+  * {
+    &[shy-img_size="small"] {
+      width: $img-small;
+      height: $img-small;
+    }
+    &[shy-img_size="medium"] {
+      width: $img-medium;
+      height: $img-medium;
+    }
+    &[shy-img_size="large"] {
+      width: $img-large;
+      height: $img-large;
+    }
+  }
+  //? Responsive Images [END]
+
+  * {
+    &[shy-test="true"] {
+      &::after {
+        content: "portrait-#{$base}";
+      }
+    }
+  }
+}
+
+@media (orientation: landscape) {
+  :root {
+    --base: 1vw;
+  }
+
+  $base: 1vw;
+
+  //? Responsive Texts [START]
+  $txt-small: calc($base * 1);
+  $txt-medium: calc($base * 2);
+  $txt-large: calc($base * 3);
+
+  * {
+    &[shy-txt_size="small"] {
+      font-size: $txt-small;
+    }
+    &[shy-txt_size="medium"] {
+      font-size: $txt-medium;
+    }
+    &[shy-txt_size="large"] {
+      font-size: $txt-large;
+    }
+  }
+  //? Responsive Texts [END]
+
+  //? Responsive Images [START]
+  $img-small: calc($base * 3);
+  $img-medium: calc($base * 6);
+  $img-large: calc($base * 9);
+
+  * {
+    &[shy-img_size="small"] {
+      width: $img-small;
+      height: $img-small;
+    }
+    &[shy-img_size="medium"] {
+      width: $img-medium;
+      height: $img-medium;
+    }
+    &[shy-img_size="large"] {
+      width: $img-large;
+      height: $img-large;
+    }
+  }
+  //? Responsive Images [END]
+
+  * {
+    &[shy-test="true"] {
+      &::after {
+        content: "landscape-#{$base}";
+      }
+    }
+  }
+}
+
 // @font-face {
 //   font-family: "Bungee";
 //   src: url("./assets/fonts/Bungee-Regular.ttf");
@@ -32,16 +146,6 @@ app-root {
   // font-size: clamp(1vmax, 1.8vmax, 2.5vmax);
   font-family: monospace;
   transition: 50ms all;
-}
-
-body {
-  font-size: 16px;
-}
-
-@media (max-width: 768px) {
-  body {
-    font-size: 14px;
-  }
 }
 
 //! CUSTOM SCROLLBAR [START]
