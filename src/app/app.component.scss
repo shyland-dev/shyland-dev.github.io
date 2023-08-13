@@ -63,22 +63,25 @@ header {
     img {
       border-radius: 50%;
       // max-height: 85px;
-      max-width: 80px;
+      // max-width: 80px;
       // width: 85px;
       // width: clamp(60px, 4vw, 85px);
       // width: 13vmin;
-      width: 11vmin;
+      // width: 11vmin;
       // width: clamp(7vmin, 13vmin, 85px);
       // height: 85px;
       // height: clamp(60px, 4vw, 85px);
       // height: 2vmin;
-      height: auto;
+      // height: auto;
+      height: calc(var(--base) * 8);
+      max-height: 80px;
     }
 
     h1 {
       padding-right: 5%;
       // font-size: 1em;
-      font-size: clamp(16px, 4vw, 24px);
+      // font-size: clamp(16px, 4vw, 24px);
+      font-size: calc(var(--base) * 3.5);
     }
   }
 
@@ -89,6 +92,7 @@ header {
 
     a {
       // font-size: clamp(10px, 4vw, 20px);
+      font-size: calc(var(--base) * 1.55);
       margin: 1%;
       padding: 3%;
       width: 100%;
