@@ -47,7 +47,7 @@ header {
   background: transparentize($color: $void, $amount: 0.8);
   backdrop-filter: blur(5px);
   border-bottom: 1px solid $medium;
-  z-index: 99;
+  z-index: 2;
 
   section {
     display: flex;
@@ -119,7 +119,7 @@ header {
 }
 
 footer {
-  position: relative;
+  // position: relative;
   bottom: 0;
   width: 100%;
   // max-height: 150px;
@@ -129,7 +129,7 @@ footer {
   background: transparentize($color: $void, $amount: 0.8);
   backdrop-filter: blur(5px);
   color: $light;
-  z-index: 99;
+  z-index: 1;
   // display: grid; //? trying grid
   // grid-template-areas: //? trying grid
   //   "logo" "email" "email" //? trying grid
@@ -283,41 +283,64 @@ footer {
 }
 
 @media (orientation: portrait) {
+  #hideMenuTriggerDiv {
+    display: block;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc(66.6vw - 5px);
+    height: 100vh;
+    z-index: 999;
+  }
+
   header {
     opacity: 1;
 
-    section {
-      opacity: 1;
-    }
+    // section {}
 
     nav {
       // margin-block: calc(var(--responsiveUnit) / 0.1);
       border-radius: 10px;
       background-image: url("../assets/SVGs/menu.svg");
-      background-position: center;
+      background-position: left top;
       background-repeat: no-repeat;
+      background-size: calc(var(--responsiveUnit) * 8);
       width: calc(var(--responsiveUnit) * 9);
       // height: calc(var(--responsiveUnit) * 9);
       filter: invert(1);
+      transition: all 0.8s ease-in-out;
       &:hover {
-        position: relative;
+        cursor: pointer;
+      }
+      &[isActive="true"] {
+        pointer-events: none;
         filter: invert(0);
         background-color: $light;
         // padding-top: 28%;
-        // position: relative;
+        position: absolute;
+        top: 0;
+        // left: calc(100% - 3vw);
+        // left: 0;
+        // left: 66.6vw;
+        left: calc(66.6vw - 5px);
+        width: 33.3%;
+        height: 100vh;
         display: block;
         // align-items: inherit;
         // justify-content: inherit;
 
+        // ~ section {
+        //   position: absolute;
+        //   top: 0;
+        //   left: 1vw;
+        // }
+
         a {
-          position: absolute;
+          // position: absolute;
           display: flex;
         }
       }
-      // &[isActive="true"] {
-      // }
-      // &[isActive="false"] {
-      // }
 
       a {
         display: none;

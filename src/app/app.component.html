@@ -1,5 +1,7 @@
 <canvas id="rainbowCanvas"></canvas>
 
+<div id="hideMenuTriggerDiv" *ngIf="showMenu" (click)="toggleMenu()"></div>
+
 <main>
   <header>
     <section (click)="redirectTo('', title)">
@@ -8,7 +10,7 @@
       <h1>ShylandDev;</h1>
     </section>
 
-    <nav *ngIf="allPages != []" [attr.isActive]="false">
+    <nav *ngIf="allPages != []" [attr.isActive]="showMenu" (click)="toggleMenu()">
       <a *ngFor="let page of allPages | keyvalue : defaultOrder" [attr.isActive]="currentPage == page.value['path']" (click)="redirectTo(page.value['path'], title)">{{page.value['path']}}</a>
     </nav>
   </header>

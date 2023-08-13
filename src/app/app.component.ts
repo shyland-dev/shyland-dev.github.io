@@ -20,6 +20,7 @@ export class AppComponent {
   window = window;
 
   theme = 'dark';
+  showMenu = false;
   rainInterval: any;
 
   constructor(
@@ -93,6 +94,12 @@ export class AppComponent {
     document.documentElement.style.setProperty('--theme', theme);
 
     this.updateView(this.title);
+  }
+
+  toggleMenu() {
+    console.log(`[${this.title}#toggleMenu] showMenu`, this.showMenu);
+
+    this.showMenu = !this.showMenu;
   }
 
   setupRainbowCanvas() {
