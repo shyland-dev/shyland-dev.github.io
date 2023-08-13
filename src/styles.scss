@@ -10,20 +10,20 @@ $medium: #92949c;
 $light: #f4f5f8;
 
 :root {
-  --base: 1vmax;
+  --responsiveUnit: 1vmax;
 }
 
 @media (orientation: portrait) {
   :root {
-    --base: 1vh;
+    // --responsiveUnit: 1vh + 1vmax;
+    --responsiveUnit: 1vh;
+    --ru2px: unit(calc(var(--responsiveUnit) + 0px), px);
   }
 
-  $base: 1vh;
-
   //? Responsive Texts [START]
-  $txt-small: calc($base * 1);
-  $txt-medium: calc($base * 2);
-  $txt-large: calc($base * 3);
+  $txt-small: calc(var(--responsiveUnit) * 1);
+  $txt-medium: calc(var(--responsiveUnit) * 2);
+  $txt-large: calc(var(--responsiveUnit) * 3);
 
   * {
     &[shy-txt_size="small"] {
@@ -39,9 +39,9 @@ $light: #f4f5f8;
   //? Responsive Texts [END]
 
   //? Responsive Images [START]
-  $img-small: calc($base * 3);
-  $img-medium: calc($base * 6);
-  $img-large: calc($base * 9);
+  $img-small: calc(var(--responsiveUnit) * 3);
+  $img-medium: calc(var(--responsiveUnit) * 6);
+  $img-large: calc(var(--responsiveUnit) * 9);
 
   * {
     &[shy-img_size="small"] {
@@ -61,8 +61,9 @@ $light: #f4f5f8;
 
   * {
     &[shy-test="true"] {
+      font-size: var(--ru2px);
       &::after {
-        content: "portrait-#{$base}";
+        content: "portrait-#{var(--responsiveUnit)}";
       }
     }
   }
@@ -70,15 +71,15 @@ $light: #f4f5f8;
 
 @media (orientation: landscape) {
   :root {
-    --base: 1vw;
+    // --responsiveUnit: 1vw + 1vmax;
+    --responsiveUnit: 1vw;
+    --ru2px: unit(calc(var(--responsiveUnit) + 0px), px);
   }
 
-  $base: 1vw;
-
   //? Responsive Texts [START]
-  $txt-small: calc($base * 1);
-  $txt-medium: calc($base * 2);
-  $txt-large: calc($base * 3);
+  $txt-small: calc(var(--responsiveUnit) * 1);
+  $txt-medium: calc(var(--responsiveUnit) * 2);
+  $txt-large: calc(var(--responsiveUnit) * 3);
 
   * {
     &[shy-txt_size="small"] {
@@ -94,9 +95,9 @@ $light: #f4f5f8;
   //? Responsive Texts [END]
 
   //? Responsive Images [START]
-  $img-small: calc($base * 3);
-  $img-medium: calc($base * 6);
-  $img-large: calc($base * 9);
+  $img-small: calc(var(--responsiveUnit) * 3);
+  $img-medium: calc(var(--responsiveUnit) * 6);
+  $img-large: calc(var(--responsiveUnit) * 9);
 
   * {
     &[shy-img_size="small"] {
@@ -116,8 +117,9 @@ $light: #f4f5f8;
 
   * {
     &[shy-test="true"] {
+      font-size: var(--ru2px);
       &::after {
-        content: "landscape-#{$base}";
+        content: "landscape-#{var(--responsiveUnit)}";
       }
     }
   }
