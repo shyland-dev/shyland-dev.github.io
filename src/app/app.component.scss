@@ -36,7 +36,9 @@ header {
   left: 0;
   width: 100%;
   // width: calc(100% - 5px);
-  max-height: 100px;
+  // max-height: 100px;
+  min-height: calc(var(--responsiveUnit) * 8);
+  max-height: calc(var(--responsiveUnit) * 8);
   height: 100px;
   display: flex;
   // align-items: center;
@@ -52,12 +54,12 @@ header {
     justify-content: center;
     align-items: center;
     color: $light;
-    border: 1px solid $void;
+    // border: 1px solid $void;
     border-radius: 10px;
     transition: 0.3s all;
     &:hover {
       background: transparentize($color: $light, $amount: 0.8);
-      border: 1px solid $light;
+      // border: 1px solid $light;
       cursor: pointer;
     }
 
@@ -74,7 +76,7 @@ header {
       // height: clamp(60px, 4vw, 85px);
       // height: 2vmin;
       // height: auto;
-      height: calc(var(--base) * 8);
+      height: calc(var(--responsiveUnit) * 8);
       max-height: 80px;
     }
 
@@ -82,7 +84,7 @@ header {
       padding-right: 5%;
       // font-size: 1em;
       // font-size: clamp(16px, 4vw, 24px);
-      font-size: calc(var(--base) * 2.5);
+      font-size: calc(var(--responsiveUnit) * 2.5);
     }
   }
 
@@ -93,7 +95,7 @@ header {
 
     a {
       // font-size: clamp(10px, 4vw, 20px);
-      font-size: calc(var(--base) * 1.55);
+      font-size: calc(var(--responsiveUnit) * 1.55);
       margin: 1%;
       padding: 3%;
       width: 100%;
@@ -101,12 +103,12 @@ header {
       display: flex;
       color: $medium;
       border-radius: 10px;
-      border: 1px solid $void;
+      // border: 1px solid $void;
       white-space: nowrap;
       transition: 0.3s all;
       &:hover {
         background: transparentize($color: $medium, $amount: 0.8);
-        border: 1px solid $light;
+        // border: 1px solid $light;
         cursor: pointer;
       }
       &[isActive="true"] {
@@ -289,15 +291,16 @@ footer {
     }
 
     nav {
-      margin-block: calc(var(--base) / 0.4);
+      // margin-block: calc(var(--responsiveUnit) / 0.1);
       border-radius: 10px;
       background-image: url("../assets/SVGs/menu.svg");
       background-position: center;
       background-repeat: no-repeat;
-      width: calc(var(--base) * 9);
-      height: calc(var(--base) * 9);
+      width: calc(var(--responsiveUnit) * 9);
+      // height: calc(var(--responsiveUnit) * 9);
       filter: invert(1);
       &:hover {
+        position: relative;
         filter: invert(0);
         background-color: $light;
         // padding-top: 28%;
@@ -307,6 +310,7 @@ footer {
         // justify-content: inherit;
 
         a {
+          position: absolute;
           display: flex;
         }
       }
