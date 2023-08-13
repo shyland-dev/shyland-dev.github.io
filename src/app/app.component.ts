@@ -43,7 +43,7 @@ export class AppComponent {
 
     console.log(`[${this.title}#constructor] allPages`, this.allPages);
 
-    this.redirectTo(this.db.get('last_page') || '', this.title);
+    // this.redirectTo(this.db.get('last_page') || '', this.title); //! BUG OR FEATURE???
 
     this.theme = this.db.get('theme') || 'dark';
     this.toggleTheme(this.theme);
