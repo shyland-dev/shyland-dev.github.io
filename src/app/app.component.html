@@ -8,8 +8,8 @@
       <h1>ShylandDev;</h1>
     </section>
 
-    <nav *ngIf="allPages != []">
-      <a shy-txt_size="medium" *ngFor="let page of allPages | keyvalue : defaultOrder" [attr.isActive]="currentPage == page.value['path']" (click)="redirectTo(page.value['path'], title)">{{page.value['path']}}</a>
+    <nav *ngIf="allPages != []" [attr.isActive]="false">
+      <a *ngFor="let page of allPages | keyvalue : defaultOrder" [attr.isActive]="currentPage == page.value['path']" (click)="redirectTo(page.value['path'], title)">{{page.value['path']}}</a>
     </nav>
   </header>
 
