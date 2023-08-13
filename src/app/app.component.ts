@@ -58,6 +58,10 @@ export class AppComponent {
     this.window.onload = () => {
       console.log(`[${this.title}#window.onload]`);
 
+      const rawCurrentPage = this.router.url.split('/')[1];
+      console.log(`[${this.title}#constructor] rawCurrentPage`, rawCurrentPage);
+      if (rawCurrentPage == '' || rawCurrentPage == 'home') this.window.history.pushState({}, '', '/');
+
       this.setupRainbowCanvas();
     };
   }
