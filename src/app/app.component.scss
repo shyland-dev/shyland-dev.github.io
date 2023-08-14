@@ -16,6 +16,10 @@
   background: #000;
 }
 
+#menuDiv {
+  display: none;
+}
+
 main {
   position: relative;
   height: 100%;
@@ -284,8 +288,7 @@ footer {
 
 @media (orientation: portrait) {
   #menuDiv {
-    display: none;
-    &[showMenu="false"] {
+    &.hide {
       // display: flex;
       animation: 0.5s slideOutRight;
       // position: fixed;
@@ -295,11 +298,14 @@ footer {
       // height: 100vh;
       // z-index: 999;
       // display: flex;
+      // transform: translateX(100%);
       // transition: 0.5s all;
     }
-    &[showMenu="true"] {
+    &.show {
       display: flex;
       animation: 0.5s slideInRight;
+      // transform: translateX(0%);
+      // transition: 0.5s all;
       position: fixed;
       top: 0;
       left: 0;

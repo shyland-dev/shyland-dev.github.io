@@ -104,10 +104,10 @@ export class AppComponent {
 
     this.showMenu = !this.showMenu;
 
-    // const menuDiv = document.getElementById('menuDiv');
-    // console.log(`[${this.title}#toggleMenu] menuDiv`, menuDiv);
+    const menuDiv = document.getElementById('menuDiv');
+    console.log(`[${this.title}#toggleMenu] menuDiv`, menuDiv);
 
-    // menuDiv.className = this.showMenu ? 'show' : 'hide';
+    menuDiv.className = this.showMenu ? 'show' : 'hide';
   }
 
   setupRainbowCanvas() {
