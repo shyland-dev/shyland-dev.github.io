@@ -20,6 +20,7 @@ export class AppComponent {
   window = window;
 
   theme = 'dark';
+  showMenu = false;
   rainInterval: any;
 
   constructor(
@@ -43,7 +44,7 @@ export class AppComponent {
 
     console.log(`[${this.title}#constructor] allPages`, this.allPages);
 
-    this.redirectTo(this.db.get('last_page') || '', this.title);
+    // this.redirectTo(this.db.get('last_page') || '', this.title); //! BUG OR FEATURE???
 
     this.theme = this.db.get('theme') || 'dark';
     this.toggleTheme(this.theme);
@@ -56,6 +57,9 @@ export class AppComponent {
 
     this.window.onload = () => {
       console.log(`[${this.title}#window.onload]`);
+
+      this.currentPage = this.router.url.split('/')[1];
+      if (this.currentPage == '' || this.currentPage == 'home') this.window.history.pushState({}, '', '/');
 
       this.setupRainbowCanvas();
     };
@@ -93,6 +97,17 @@ export class AppComponent {
     document.documentElement.style.setProperty('--theme', theme);
 
     this.updateView(this.title);
+  }
+
+  toggleMenu() {
+    console.log(`[${this.title}#toggleMenu] showMenu`, this.showMenu);
+
+    this.showMenu = !this.showMenu;
+
+    // const menuDiv = document.getElementById('menuDiv');
+    // console.log(`[${this.title}#toggleMenu] menuDiv`, menuDiv);
+
+    // menuDiv.className = this.showMenu ? 'show' : 'hide';
   }
 
   setupRainbowCanvas() {
