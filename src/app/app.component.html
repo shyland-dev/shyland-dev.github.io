@@ -1,6 +1,14 @@
 <canvas id="rainbowCanvas"></canvas>
 
-<div id="hideMenuTriggerDiv" *ngIf="showMenu" (click)="toggleMenu()"></div>
+<div id="menuDiv" [attr.showMenu]="showMenu">
+  <div id="closeMenuTriggerDiv" (click)="toggleMenu()"></div>
+
+  <div id="menu-wrapper">
+    <nav *ngIf="allPages != []">
+      <a *ngFor="let page of allPages | keyvalue : defaultOrder" [attr.isActive]="currentPage == page.value['path']" (click)="redirectTo(page.value['path'], title)">{{page.value['path']}}</a>
+    </nav>
+  </div>
+</div>
 
 <main>
   <header>
@@ -10,7 +18,7 @@
       <h1>ShylandDev;</h1>
     </section>
 
-    <nav *ngIf="allPages != []" [attr.isActive]="showMenu" (click)="toggleMenu()">
+    <nav *ngIf="allPages != []" (click)="toggleMenu()">
       <a *ngFor="let page of allPages | keyvalue : defaultOrder" [attr.isActive]="currentPage == page.value['path']" (click)="redirectTo(page.value['path'], title)">{{page.value['path']}}</a>
     </nav>
   </header>

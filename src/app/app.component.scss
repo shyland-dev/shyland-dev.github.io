@@ -283,15 +283,76 @@ footer {
 }
 
 @media (orientation: portrait) {
-  #hideMenuTriggerDiv {
-    display: block;
-    opacity: 0;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: calc(66.6vw - 5px);
-    height: 100vh;
-    z-index: 999;
+  #menuDiv {
+    display: none;
+    &[showMenu="false"] {
+      // display: flex;
+      animation: 0.5s slideOutRight;
+      // position: fixed;
+      // top: 0;
+      // left: 100vw;
+      // width: 100vw;
+      // height: 100vh;
+      // z-index: 999;
+      // display: flex;
+      // transition: 0.5s all;
+    }
+    &[showMenu="true"] {
+      display: flex;
+      animation: 0.5s slideInRight;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 999;
+      // background: $success;
+
+      #closeMenuTriggerDiv {
+        // background: transparentize($color: $void, $amount: 0.8);
+        // backdrop-filter: blur(10px);
+        width: 65vw;
+        height: 100vh;
+      }
+
+      #menu-wrapper {
+        width: 35vw;
+        height: 100vh;
+        border-left: 1px solid $medium;
+        background: transparentize($color: $void, $amount: 0.6);
+        backdrop-filter: blur(10px);
+
+        nav {
+          // background: $primary;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+
+          a {
+            // font-size: clamp(10px, 4vw, 20px);
+            font-size: calc(var(--responsiveUnit) * 3.5);
+            // margin: 1%;
+            padding: 3%;
+            width: 100%;
+            // height: 100%;
+            display: flex;
+            color: $medium;
+            // border-radius: 5px;
+            // border: 1px solid $void;
+            white-space: nowrap;
+            transition: 0.3s all;
+            &:hover {
+              background: transparentize($color: $medium, $amount: 0.8);
+              // border: 1px solid $light;
+              cursor: pointer;
+            }
+            &[isActive="true"] {
+              color: $light;
+            }
+          }
+        }
+      }
+    }
   }
 
   header {
@@ -312,34 +373,6 @@ footer {
       transition: all 0.8s ease-in-out;
       &:hover {
         cursor: pointer;
-      }
-      &[isActive="true"] {
-        pointer-events: none;
-        filter: invert(0);
-        background-color: $light;
-        // padding-top: 28%;
-        position: absolute;
-        top: 0;
-        // left: calc(100% - 3vw);
-        // left: 0;
-        // left: 66.6vw;
-        left: calc(66.6vw - 5px);
-        width: 33.3%;
-        height: 100vh;
-        display: block;
-        // align-items: inherit;
-        // justify-content: inherit;
-
-        // ~ section {
-        //   position: absolute;
-        //   top: 0;
-        //   left: 1vw;
-        // }
-
-        a {
-          // position: absolute;
-          display: flex;
-        }
       }
 
       a {
