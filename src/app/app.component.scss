@@ -159,7 +159,8 @@ footer {
 
     img {
       width: 100%;
-      max-width: 130px;
+      // max-width: 130px;
+      max-width: calc(var(--responsiveMin) * 20);
       height: auto;
       margin: 0;
       padding: 0;
@@ -173,6 +174,10 @@ footer {
     align-items: center;
     justify-content: center;
     width: 66.6%;
+
+    p {
+      font-size: calc(var(--responsiveMax) * 1.6);
+    }
 
     div {
       display: flex;
@@ -190,6 +195,7 @@ footer {
         border: 1px solid $void;
         padding: 1%;
         transition: 0.3s all;
+        font-size: calc(var(--responsiveMax) * 1);
         &:focus {
           border: 1px solid $light;
         }
@@ -197,7 +203,7 @@ footer {
 
       button {
         width: 100%;
-        max-width: 100px;
+        max-width: 140px;
         height: 100%;
         border-top-right-radius: 10px;
         border-bottom-right-radius: 10px;
@@ -205,6 +211,7 @@ footer {
         border-left: 2px solid $medium;
         padding: 1%;
         transition: 0.3s all;
+        font-size: calc(var(--responsiveMax) * 1.2);
         &:hover {
           background: transparentize($color: $light, $amount: 0.8);
           border: 1px solid $light;
@@ -219,9 +226,11 @@ footer {
     // grid-area: page; //? trying grid
     display: flex;
     justify-content: space-evenly;
-    width: 50%;
+    align-items: center;
+    // width: 50%;
 
     a {
+      font-size: calc(var(--responsiveMax) * 2.15);
       display: flex;
       color: $medium;
       border-radius: 5px;
@@ -259,7 +268,9 @@ footer {
 
       img {
         width: 100%;
-        max-width: 30px;
+        max-width: 40px;
+        // width: calc(var(--responsiveMin) * 30);
+        // min-width: 30px;
         height: auto;
         filter: invert(1);
       }
@@ -273,7 +284,12 @@ footer {
     justify-content: space-evenly;
     align-items: center;
 
+    p {
+      font-size: calc(var(--responsiveMax) * 1.9);
+    }
+
     a {
+      font-size: calc(var(--responsiveMax) * 2);
       text-decoration: underline;
       color: $medium;
       white-space: nowrap;
@@ -384,6 +400,104 @@ footer {
 
       a {
         display: none;
+      }
+    }
+  }
+
+  footer {
+    // opacity: 0.5;
+
+    .footer-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      margin: 1%;
+    }
+
+    #logoDiv {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+
+      img {
+        width: 100%;
+        // max-width: 130px;
+        max-width: calc(var(--responsiveMin) * 38);
+        height: auto;
+        margin: 0;
+        padding: 0;
+      }
+    }
+
+    #emailDiv {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+
+      p {
+        font-size: calc(var(--responsiveMin) * 4.5);
+      }
+
+      div {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        width: 100%;
+
+        input {
+          height: 32px;
+          font-size: calc(var(--responsiveMin) * 4);
+        }
+
+        button {
+          height: 36px;
+          font-size: calc(var(--responsiveMin) * 3.45);
+        }
+      }
+    }
+
+    #pageDiv {
+      display: flex;
+      justify-content: space-evenly;
+      width: 100%;
+
+      a {
+        font-size: calc(var(--responsiveMin) * 4.1);
+      }
+    }
+
+    #socialDiv {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      width: 100%;
+
+      a {
+        img {
+          max-width: 60px;
+          width: calc(var(--responsiveMin) * 20);
+        }
+      }
+    }
+
+    #licenseDiv {
+      display: flex;
+      width: 100%;
+      justify-content: space-evenly;
+      align-items: center;
+      flex-direction: column;
+
+      p {
+        font-size: calc(var(--responsiveMin) * 3.9);
+      }
+
+      a {
+        margin: 2%;
+        font-size: calc(var(--responsiveMin) * 4.2);
       }
     }
   }
