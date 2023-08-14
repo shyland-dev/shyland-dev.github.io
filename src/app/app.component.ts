@@ -58,9 +58,8 @@ export class AppComponent {
     this.window.onload = () => {
       console.log(`[${this.title}#window.onload]`);
 
-      const rawCurrentPage = this.router.url.split('/')[1];
-      console.log(`[${this.title}#constructor] rawCurrentPage`, rawCurrentPage);
-      if (rawCurrentPage == '' || rawCurrentPage == 'home') this.window.history.pushState({}, '', '/');
+      this.currentPage = this.router.url.split('/')[1];
+      if (this.currentPage == '' || this.currentPage == 'home') this.window.history.pushState({}, '', '/');
 
       this.setupRainbowCanvas();
     };
@@ -104,6 +103,11 @@ export class AppComponent {
     console.log(`[${this.title}#toggleMenu] showMenu`, this.showMenu);
 
     this.showMenu = !this.showMenu;
+
+    // const menuDiv = document.getElementById('menuDiv');
+    // console.log(`[${this.title}#toggleMenu] menuDiv`, menuDiv);
+
+    // menuDiv.className = this.showMenu ? 'show' : 'hide';
   }
 
   setupRainbowCanvas() {
