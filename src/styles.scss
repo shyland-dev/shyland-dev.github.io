@@ -10,61 +10,51 @@ $medium: #92949c;
 $light: #f4f5f8;
 
 :root {
-  --responsiveUnit: 1vmax;
+  --responsiveMax: 1vmax;
+  --responsiveMin: 1vmin;
 }
 
 @media (orientation: portrait) {
   :root {
-    // --responsiveUnit: 1vh + 1vmax;
-    --responsiveUnit: 1vh;
-    --ru2px: unit(calc(var(--responsiveUnit) + 0px), px);
-
-    --txt-small: calc(var(--responsiveUnit) * 1);
-    --txt-medium: calc(var(--responsiveUnit) * 2);
-    --txt-large: calc(var(--responsiveUnit) * 3);
-
-    --img-small: calc(var(--responsiveUnit) * 3);
-    --img-medium: calc(var(--responsiveUnit) * 6);
-    --img-large: calc(var(--responsiveUnit) * 9);
+    --responsiveMax: 1vh;
+    --responsiveMin: 1vw;
+    --rmax2px: unit(calc(var(--responsiveMax) + 0px), px);
+    --rmin2px: unit(calc(var(--responsiveMin) + 0px), px);
   }
 
-  //? Responsive Texts [START]
-
   * {
+    //? Responsive Texts [START]
     &[shy-txt_size="small"] {
-      font-size: var(--txt-small);
+      font-size: calc(var(--responsiveMax) * 1);
     }
     &[shy-txt_size="medium"] {
-      font-size: var(--txt-medium);
+      font-size: calc(var(--responsiveMax) * 2);
     }
     &[shy-txt_size="large"] {
-      font-size: var(--txt-large);
+      font-size: calc(var(--responsiveMax) * 3);
     }
-  }
-  //? Responsive Texts [END]
+    //? Responsive Texts [END]
 
-  //? Responsive Images [START]
-  * {
+    //? Responsive Images [START]
     &[shy-img_size="small"] {
-      width: var(--img-small);
-      height: var(--img-small);
+      width: calc(var(--responsiveMax) * 3);
+      height: calc(var(--responsiveMax) * 3);
     }
     &[shy-img_size="medium"] {
-      width: var(--img-medium);
-      height: var(--img-medium);
+      width: calc(var(--responsiveMax) * 6);
+      height: calc(var(--responsiveMax) * 6);
     }
     &[shy-img_size="large"] {
-      width: var(--img-large);
-      height: var(--img-large);
+      width: calc(var(--responsiveMax) * 9);
+      height: calc(var(--responsiveMax) * 9);
     }
-  }
-  //? Responsive Images [END]
 
-  * {
+    //? Responsive Images [END]
+
     &[shy-test="true"] {
-      font-size: var(--ru2px);
+      font-size: var(--rmax2px);
       &::after {
-        content: "portrait-#{var(--responsiveUnit)}";
+        content: "landscape-#{var(--responsiveMax)}";
       }
     }
   }
@@ -72,57 +62,45 @@ $light: #f4f5f8;
 
 @media (orientation: landscape) {
   :root {
-    // --responsiveUnit: 1vw + 1vmax;
-    --responsiveUnit: 1vw;
-    --ru2px: unit(calc(var(--responsiveUnit) + 0px), px);
-
-    --txt-small: calc(var(--responsiveUnit) * 1);
-    --txt-medium: calc(var(--responsiveUnit) * 2);
-    --txt-large: calc(var(--responsiveUnit) * 3);
-
-    --img-small: calc(var(--responsiveUnit) * 3);
-    --img-medium: calc(var(--responsiveUnit) * 6);
-    --img-large: calc(var(--responsiveUnit) * 9);
+    --responsiveMax: 1vw;
+    --responsiveMin: 1vh;
+    --rmax2px: unit(calc(var(--responsiveMax) + 0px), px);
+    --rmin2px: unit(calc(var(--responsiveMin) + 0px), px);
   }
 
-  //? Responsive Texts [START]
-
   * {
+    //? Responsive Texts [START]
     &[shy-txt_size="small"] {
-      font-size: var(--txt-small);
+      font-size: calc(var(--responsiveMax) * 1);
     }
     &[shy-txt_size="medium"] {
-      font-size: var(--txt-medium);
+      font-size: calc(var(--responsiveMax) * 2);
     }
     &[shy-txt_size="large"] {
-      font-size: var(--txt-large);
+      font-size: calc(var(--responsiveMax) * 3);
     }
-  }
-  //? Responsive Texts [END]
+    //? Responsive Texts [END]
 
-  //? Responsive Images [START]
-
-  * {
+    //? Responsive Images [START]
     &[shy-img_size="small"] {
-      width: var(--img-small);
-      height: var(--img-small);
+      width: calc(var(--responsiveMax) * 3);
+      height: calc(var(--responsiveMax) * 3);
     }
     &[shy-img_size="medium"] {
-      width: var(--img-medium);
-      height: var(--img-medium);
+      width: calc(var(--responsiveMax) * 6);
+      height: calc(var(--responsiveMax) * 6);
     }
     &[shy-img_size="large"] {
-      width: var(--img-large);
-      height: var(--img-large);
+      width: calc(var(--responsiveMax) * 9);
+      height: calc(var(--responsiveMax) * 9);
     }
-  }
-  //? Responsive Images [END]
 
-  * {
+    //? Responsive Images [END]
+
     &[shy-test="true"] {
-      font-size: var(--ru2px);
+      font-size: var(--rmax2px);
       &::after {
-        content: "landscape-#{var(--responsiveUnit)}";
+        content: "landscape-#{var(--responsiveMax)}";
       }
     }
   }

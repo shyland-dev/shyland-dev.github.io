@@ -8,7 +8,7 @@
   width: 100%;
   overflow-y: visible;
   // margin-top: 100px;
-  margin-top: calc(var(--responsiveUnit) * 8);
+  margin-top: calc(var(--responsiveMax) * 8);
   padding-top: 5px;
   padding-bottom: 5px;
   color: $light;
@@ -21,21 +21,21 @@
 
 p.custom {
   // font-size: $base;
-  font-size: calc(var(--responsiveUnit) * 7);
+  font-size: calc(var(--responsiveMax) * 7);
 }
 
 img.custom {
   // width: $base;
-  width: calc(var(--responsiveUnit) * 40);
+  width: calc(var(--responsiveMax) * 40);
   // height: $base;
-  height: calc(var(--responsiveUnit) * 4);
+  height: calc(var(--responsiveMax) * 4);
 }
 
 // p.custom {
-//   font-size: var(--responsiveUnit);
+//   font-size: var(--responsiveMax);
 // }
 
 // img.custom {
-//   width: var(--responsiveUnit);
-//   height: var(--responsiveUnit);
+//   width: var(--responsiveMax);
+//   height: var(--responsiveMax);
 // }

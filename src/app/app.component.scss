@@ -41,8 +41,8 @@ header {
   width: 100%;
   // width: calc(100% - 5px);
   // max-height: 100px;
-  min-height: calc(var(--responsiveUnit) * 8);
-  max-height: calc(var(--responsiveUnit) * 8);
+  min-height: calc(var(--responsiveMax) * 8);
+  max-height: calc(var(--responsiveMax) * 8);
   height: 100px;
   display: flex;
   // align-items: center;
@@ -80,7 +80,7 @@ header {
       // height: clamp(60px, 4vw, 85px);
       // height: 2vmin;
       // height: auto;
-      height: calc(var(--responsiveUnit) * 8);
+      height: calc(var(--responsiveMax) * 8);
       max-height: 80px;
     }
 
@@ -88,7 +88,7 @@ header {
       padding-right: 5%;
       // font-size: 1em;
       // font-size: clamp(16px, 4vw, 24px);
-      font-size: calc(var(--responsiveUnit) * 2.5);
+      font-size: calc(var(--responsiveMax) * 2.5);
     }
   }
 
@@ -99,7 +99,7 @@ header {
 
     a {
       // font-size: clamp(10px, 4vw, 20px);
-      font-size: calc(var(--responsiveUnit) * 1.55);
+      font-size: calc(var(--responsiveMax) * 1.55);
       margin: 1%;
       padding: 3%;
       width: 100%;
@@ -336,7 +336,8 @@ footer {
 
           a {
             // font-size: clamp(10px, 4vw, 20px);
-            font-size: calc(var(--responsiveUnit) * 3.5);
+            // font-size: calc(var(--responsiveMax) * 5.5);
+            font-size: calc(var(--responsiveMin) * 3.5);
             // margin: 1%;
             padding: 3%;
             width: 100%;
@@ -367,14 +368,14 @@ footer {
     // section {}
 
     nav {
-      // margin-block: calc(var(--responsiveUnit) / 0.1);
+      // margin-block: calc(var(--responsiveMax) / 0.1);
       border-radius: 10px;
       background-image: url("../assets/SVGs/menu.svg");
       background-position: left top;
       background-repeat: no-repeat;
-      background-size: calc(var(--responsiveUnit) * 8);
-      width: calc(var(--responsiveUnit) * 9);
-      // height: calc(var(--responsiveUnit) * 9);
+      background-size: calc(var(--responsiveMax) * 8);
+      width: calc(var(--responsiveMax) * 9);
+      // height: calc(var(--responsiveMax) * 9);
       filter: invert(1);
       transition: all 0.8s ease-in-out;
       &:hover {
