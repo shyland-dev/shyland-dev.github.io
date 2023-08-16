@@ -1,0 +1,28 @@
+@import "/src/styles.scss";
+
+:host {
+  position: relative;
+  height: max-content;
+  width: 100%;
+  overflow-y: visible;
+  margin-top: calc(var(--responsiveMax) * 8);
+  padding-top: 5px;
+  padding-bottom: 5px;
+  color: $light;
+}
+
+#content {
+  height: 100%;
+  width: 100%;
+}
+
+#quemSomos{
+    margin-left: 40%;
+    margin-right: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 20vh;
+    background-color: aquamarine;
+    border-radius: 35%;
+}
