@@ -17,12 +17,37 @@
 }
 
 #quemSomos{
+    //allign page
+    margin-top: 1.5%;
     margin-left: 40%;
     margin-right: 40%;
+    margin-bottom: 2%;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 20vh;
-    background-color: aquamarine;
+
+    //background
+    background: transparentize($color: $void, $amount: 0.6);
+    backdrop-filter: blur(10px);
+
+    //border
+    border: 1px solid $light;
     border-radius: 35%;
+
+    // font
+    font-size: calc(var(--responsiveMin) * 3.5);
+}
+
+#title{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // height: 10vh;
+}
+
+.classCenter{
+  text-align: center;
+  background: transparentize($color: $void, $amount: 0.6);
+  backdrop-filter: blur(10px)
 }
