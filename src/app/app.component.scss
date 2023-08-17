@@ -189,31 +189,37 @@ footer {
       input {
         width: 100%;
         max-width: 350px;
-        height: 30px;
+        height: 100%;
         border-top-left-radius: 10px;
         border-bottom-left-radius: 10px;
         border: 1px solid $void;
         padding: 1%;
         transition: 0.3s all;
-        font-size: calc(var(--responsiveMax) * 1);
+        font-size: calc(var(--responsiveMax) * 1.5);
         &:focus {
           border: 1px solid $light;
         }
       }
 
-      button {
+      #pseudoButton {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         width: 100%;
         max-width: 140px;
         height: 100%;
         border-top-right-radius: 10px;
         border-bottom-right-radius: 10px;
-        border: 1px solid $void;
+        border: 1px solid $medium;
         border-left: 2px solid $medium;
         padding: 1%;
         transition: 0.3s all;
         font-size: calc(var(--responsiveMax) * 1.2);
+        background: transparentize($color: $light, $amount: 0.8);
+        backdrop-filter: blur(5px);
+        color: $light;
         &:hover {
-          background: transparentize($color: $light, $amount: 0.8);
+          background: transparentize($color: $light, $amount: 0.9);
           border: 1px solid $light;
           border-left: 2px solid $medium;
           cursor: pointer;
@@ -344,6 +350,19 @@ footer {
         background: transparentize($color: $void, $amount: 0.6);
         backdrop-filter: blur(10px);
 
+        h1 {
+          background: transparentize($color: $light, $amount: 0.8);
+          font-size: calc(var(--responsiveMin) * 3.5);
+          margin: 0;
+          padding: 3%;
+          color: $light;
+        }
+
+        hr {
+          margin: 0;
+          border-bottom: 1px solid $medium;
+        }
+
         nav {
           // background: $primary;
           display: flex;
@@ -449,19 +468,19 @@ footer {
 
         input {
           height: 32px;
-          font-size: calc(var(--responsiveMin) * 4);
+          font-size: calc(var(--responsiveMin) * 3.6);
         }
 
-        button {
+        #pseudoButton {
           height: 36px;
-          font-size: calc(var(--responsiveMin) * 3.45);
+          font-size: calc(var(--responsiveMin) * 3.4);
         }
       }
     }
 
     #pageDiv {
       display: flex;
-      justify-content: space-evenly;
+      justify-content: center;
       width: 100%;
 
       a {
@@ -489,7 +508,7 @@ footer {
       width: 100%;
       justify-content: space-evenly;
       align-items: center;
-      flex-direction: column;
+      flex-direction: column-reverse;
 
       p {
         font-size: calc(var(--responsiveMin) * 3.9);
