@@ -4,6 +4,10 @@
   <div id="closeMenuTriggerDiv" (click)="toggleMenu()"></div>
 
   <div id="menu-wrapper">
+    <h1>Menu</h1>
+
+    <hr>
+
     <nav *ngIf="allPages != []">
       <a *ngFor="let page of allPages | keyvalue : defaultOrder" [attr.isActive]="currentPage == page.value['path']" (click)="redirectTo(page.value['path'], title)">{{page.value['path']}}</a>
     </nav>
@@ -37,7 +41,7 @@
         <div id="subscribeEmailDiv">
           <input type="email">
 
-          <button type="submit">Subscribe</button>
+          <div id="pseudoButton">Subscribe</div>
         </div>
       </div>
     </div>
