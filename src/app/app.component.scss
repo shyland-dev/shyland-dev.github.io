@@ -179,7 +179,7 @@ footer {
       font-size: calc(var(--responsiveMax) * 1.6);
     }
 
-    div {
+    #subscribeEmailDiv {
       display: flex;
       flex-direction: row;
       align-items: center;
@@ -386,7 +386,7 @@ footer {
     nav {
       // margin-block: calc(var(--responsiveMax) / 0.1);
       border-radius: 10px;
-      background-image: url("../assets/SVGs/menu.svg");
+      background-image: url("../assets/imgs/SVGs/menu.svg");
       background-position: left top;
       background-repeat: no-repeat;
       background-size: calc(var(--responsiveMax) * 8);
@@ -441,7 +441,7 @@ footer {
         font-size: calc(var(--responsiveMin) * 4.5);
       }
 
-      div {
+      #subscribeEmailDiv {
         display: flex;
         flex-direction: row;
         justify-content: center;
