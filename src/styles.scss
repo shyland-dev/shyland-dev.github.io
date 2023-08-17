@@ -54,7 +54,7 @@ $light: #f4f5f8;
     &[shy-test="true"] {
       font-size: var(--rmax2px);
       &::after {
-        content: "landscape-#{var(--responsiveMax)}";
+        content: "portrait-#{var(--responsiveMax)}";
       }
     }
   }
