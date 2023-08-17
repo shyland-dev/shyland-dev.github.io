@@ -4,6 +4,10 @@
   <div id="closeMenuTriggerDiv" (click)="toggleMenu()"></div>
 
   <div id="menu-wrapper">
+    <h1>Menu</h1>
+
+    <hr>
+
     <nav *ngIf="allPages != []">
       <a *ngFor="let page of allPages | keyvalue : defaultOrder" [attr.isActive]="currentPage == page.value['path']" (click)="redirectTo(page.value['path'], title)">{{page.value['path']}}</a>
     </nav>
@@ -13,7 +17,7 @@
 <main>
   <header>
     <section (click)="redirectTo('', title)">
-      <img src="assets/IMGs/shyland-icon_inverted.png" alt="icon" />
+      <img src="assets/imgs/PNGs/shyland-icon_inverted.png" alt="icon" />
 
       <h1>ShylandDev;</h1>
     </section>
@@ -28,16 +32,16 @@
   <footer>
     <div class="footer-wrapper">
       <div id="logoDiv">
-        <img src="assets/IMGs/shyland.png" alt="logo" />
+        <img src="assets/imgs/PNGs/shyland.png" alt="logo" />
       </div>
 
       <div id="emailDiv">
         <p>Subscribe to our newsletter</p>
 
-        <div>
+        <div id="subscribeEmailDiv">
           <input type="email">
 
-          <button type="submit">Subscribe</button>
+          <div id="pseudoButton">Subscribe</div>
         </div>
       </div>
     </div>
@@ -71,23 +75,23 @@
 
       <div id="socialDiv">
         <a href="#" target="_blank">
-          <img src="assets/SVGs/logo-github.svg" alt="github" />
+          <img src="assets/imgs/SVGs/logo-github.svg" alt="github" />
         </a>
 
         <a href="#" target="_blank">
-          <img src="assets/SVGs/logo-instagram.svg" alt="instagram" />
+          <img src="assets/imgs/SVGs/logo-instagram.svg" alt="instagram" />
         </a>
 
         <a href="#" target="_blank">
-          <img src="assets/SVGs/logo-linkedin.svg" alt="linkedin" />
+          <img src="assets/imgs/SVGs/logo-linkedin.svg" alt="linkedin" />
         </a>
 
         <a href="#" target="_blank">
-          <img src="assets/SVGs/logo-discord.svg" alt="discord" />
+          <img src="assets/imgs/SVGs/logo-discord.svg" alt="discord" />
         </a>
 
         <a href="#" target="_blank">
-          <img src="assets/SVGs/logo-youtube.svg" alt="youtube" />
+          <img src="assets/imgs/SVGs/logo-youtube.svg" alt="youtube" />
         </a>
       </div>
     </div>
