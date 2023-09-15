@@ -8,34 +8,34 @@
   width: 100%;
   overflow-y: visible;
   // margin-top: 100px;
-  margin-top: calc(var(--responsiveMax) * 8);
-  padding-top: 5px;
-  padding-bottom: 5px;
+  margin-top: calc(var(--responsiveUnit) * 5);
+  padding-block: 1%;
   color: $light;
 }
 
 #content {
   height: 100%;
   width: 100%;
+  font-size: calc(var(--responsiveUnit) * 1.5);
 }
 
 p.custom {
   // font-size: $base;
-  font-size: calc(var(--responsiveMax) * 7);
+  font-size: calc(var(--responsiveUnit) * 7);
 }
 
 img.custom {
   // width: $base;
-  width: calc(var(--responsiveMax) * 40);
+  width: calc(var(--responsiveUnit) * 40);
   // height: $base;
-  height: calc(var(--responsiveMax) * 4);
+  height: calc(var(--responsiveUnit) * 4);
 }
 
 // p.custom {
-//   font-size: var(--responsiveMax);
+//   font-size: var(--responsiveUnit);
 // }
 
 // img.custom {
-//   width: var(--responsiveMax);
-//   height: var(--responsiveMax);
+//   width: var(--responsiveUnit);
+//   height: var(--responsiveUnit);
 // }

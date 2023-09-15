@@ -17,8 +17,6 @@ export class AppComponent {
   allPages: any = [];
   currentPage: any = null;
 
-  window = window;
-
   theme = 'dark';
   showMenu = false;
   rainInterval: any;
@@ -49,17 +47,17 @@ export class AppComponent {
     this.theme = this.db.get('theme') || 'dark';
     this.toggleTheme(this.theme);
 
-    this.window.onresize = () => {
+    window.onresize = () => {
       console.log(`[${this.title}#window.onresize]`);
 
       this.setupRainbowCanvas();
     };
 
-    this.window.onload = () => {
+    window.onload = () => {
       console.log(`[${this.title}#window.onload]`);
 
       this.currentPage = this.router.url.split('/')[1];
-      if (this.currentPage == '' || this.currentPage == 'home') this.window.history.pushState({}, '', '/');
+      if (this.currentPage == '' || this.currentPage == 'home') window.history.pushState({}, '', '/');
 
       this.setupRainbowCanvas();
     };
@@ -76,7 +74,7 @@ export class AppComponent {
     // { skipLocationChange: true }
     await this.router.navigateByUrl(`/${url}`);
 
-    if (url == '' || url == 'home') this.window.history.pushState({}, '', '/');
+    if (url == '' || url == 'home') window.history.pushState({}, '', '/');
 
     this.currentPage = url;
     this.db.set('last_page', url);
