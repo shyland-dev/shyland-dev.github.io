@@ -41,12 +41,11 @@
     .card-picture {
       height: 60%;
       width: 100%;
-      border-top-left-radius: 15px;
-      border-top-right-radius: 15px;
+      // border-top-left-radius: 15px;
+      // border-top-right-radius: 15px;
+      overflow: hidden;
 
       img {
-        border-top-left-radius: 15px;
-        border-top-right-radius: 15px;
         height: 100%;
         width: 100%;
         object-fit: cover;
@@ -59,8 +58,9 @@
       height: 40%;
       width: 100%;
       background: $dark;
-      border-bottom-left-radius: 15px;
-      border-bottom-right-radius: 15px;
+      // border-bottom-left-radius: 15px;
+      // border-bottom-right-radius: 15px;
+      overflow: hidden;
       &::before {
         content: "";
         position: absolute;
