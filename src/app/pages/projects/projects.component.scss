@@ -1,0 +1,17 @@
+@import "/src/styles.scss";
+
+:host {
+  position: relative;
+  height: max-content;
+  width: 100%;
+  overflow-y: visible;
+  margin-top: calc(var(--responsiveUnit) * 5);
+  padding-block: 1%;
+  color: $light;
+}
+
+#content {
+  height: 100%;
+  width: 100%;
+  font-size: calc(var(--responsiveUnit) * 1.5);
+}
