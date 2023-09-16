@@ -41,6 +41,8 @@
     .card-picture {
       height: 60%;
       width: 100%;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
 
       img {
         height: 100%;
@@ -55,6 +57,8 @@
       height: 40%;
       width: 100%;
       background: $dark;
+      border-bottom-left-radius: 15px;
+      border-bottom-right-radius: 15px;
       &::before {
         content: "";
         position: absolute;
