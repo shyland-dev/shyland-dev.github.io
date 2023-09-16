@@ -30,7 +30,7 @@
   <router-outlet></router-outlet>
 
   <footer>
-    <div class="footer-wrapper">
+    <div class="footer-wrapper" id="logo_email">
       <div id="logoDiv">
         <img src="assets/imgs/PNGs/shyland.png" alt="logo" />
       </div>
@@ -46,7 +46,7 @@
       </div>
     </div>
 
-    <div class="footer-wrapper">
+    <div class="footer-wrapper" id="page_social">
       <div id="pageDiv">
         <ul *ngIf="allPages != []">
           <li *ngFor="let page of allPages | keyvalue : defaultOrder" [attr.isActive]="currentPage == page.value['path']" (click)="redirectTo(page.value['path'], title)">
@@ -96,7 +96,7 @@
       </div>
     </div>
 
-    <div class="footer-wrapper">
+    <div class="footer-wrapper" id="license">
       <div id="licenseDiv">
         <p>&#169; 2023 ShylandDev; All rights reserved.</p>
 
