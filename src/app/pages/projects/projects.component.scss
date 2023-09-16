@@ -46,6 +46,7 @@
         height: 100%;
         width: 100%;
         object-fit: cover;
+        object-position: center;
       }
     }
 
@@ -68,7 +69,7 @@
         font-size: calc(var(--responsiveUnit) * 1.1);
         margin: 3%;
         padding: 0;
-        font-family: "VCR";
+        font-family: "CaviarDreams";
       }
 
       p {
