@@ -3,7 +3,6 @@
 :host {
   position: relative;
   width: 100%;
-  overflow-y: visible;
 }
 
 #rainbowCanvas {
@@ -49,6 +48,9 @@ header {
   backdrop-filter: blur(5px);
   border-bottom: 1px solid $medium;
   z-index: 2;
+  &[hasScrollbar="true"] {
+    width: calc(100% - var(--scrollbarWidth));
+  }
 
   section {
     display: flex;

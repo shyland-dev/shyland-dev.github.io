@@ -19,6 +19,7 @@ export class AppComponent {
 
   theme = 'dark';
   showMenu = false;
+  hasScrollbar = false;
   rainInterval: any;
 
   constructor(
@@ -36,7 +37,9 @@ export class AppComponent {
       return (
         page.path !== '' &&
         page.path !== '**' &&
-        page.path !== 'home'
+        page.path !== 'home' &&
+        page.path !== 'test' &&
+        page.path !== 'not-found'
       );
     });
 
@@ -51,6 +54,8 @@ export class AppComponent {
       console.log(`[${this.title}#window.onresize]`);
 
       this.setupRainbowCanvas();
+
+      this.detectScrollbar();
     };
 
     window.onload = () => {
@@ -60,6 +65,8 @@ export class AppComponent {
       if (this.currentPage == '' || this.currentPage == 'home') window.history.pushState({}, '', '/');
 
       this.setupRainbowCanvas();
+
+      this.detectScrollbar();
     };
   }
 
@@ -79,6 +86,8 @@ export class AppComponent {
     this.currentPage = url;
     this.db.set('last_page', url);
     console.log(`[${this.title}#redirectTo] last_page`, [this.db.get('last_page')]);
+
+    this.detectScrollbar();
 
     this.updateView(this.title);
   }
@@ -158,5 +167,13 @@ export class AppComponent {
 
     this.rainInterval = setInterval(rain, 25);
     console.log(`[${this.title}#setupRainbowCanvas] rainInterval`, this.rainInterval);
+  }
+
+  detectScrollbar() {
+    const appRoot = document.querySelector('app-root');
+    console.log(`[${this.title}#detectScrollbar] appRoot`, appRoot);
+
+    this.hasScrollbar = appRoot.scrollHeight > appRoot.clientHeight;
+    console.log(`[${this.title}#detectScrollbar] hasScrollbar`, this.hasScrollbar);
   }
 }
