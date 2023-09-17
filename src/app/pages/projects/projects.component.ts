@@ -19,6 +19,8 @@ export class ProjectsComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(`[${this.title}#ngOnInit]`);
+
+    this.blurLoad();
   }
 
   updateView() {
@@ -35,4 +37,23 @@ export class ProjectsComponent implements OnInit {
   }
 
   defaultOrder() { return 0; }
+
+  blurLoad() {
+    const cardPictures = document.querySelectorAll('.card-picture');
+    console.log(`[${this.title}#blurLoad] cardPictures (${cardPictures.length})`, cardPictures);
+
+    cardPictures.forEach((cardPicture: any) => {
+      const img = cardPicture.querySelector('img');
+
+      function loaded() {
+        cardPicture.classList.add('loaded');
+      }
+
+      if (img.complete) {
+        loaded();
+      } else {
+        img.addEventListener('load', loaded);
+      }
+    });
+  }
 }

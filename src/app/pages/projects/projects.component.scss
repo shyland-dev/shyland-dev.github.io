@@ -4,7 +4,6 @@
   position: relative;
   height: max-content;
   width: 100%;
-  overflow-y: visible;
   margin-top: calc(var(--responsiveUnit) * 5);
   padding-block: 1%;
   color: $light;
@@ -39,12 +38,34 @@
     }
 
     .card-picture {
+      position: relative;
       height: 60%;
       width: 100%;
       border-top-left-radius: 15px;
       border-top-right-radius: 15px;
+      background-size: cover;
+      background-position: center;
+      &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        // height: calc(var(--responsiveUnit) * 16);
+        // width: calc(var(--responsiveUnit) * 12);
+        animation: pulse 2s infinite;
+      }
+      &.loaded {
+        &::before {
+          content: none;
+        }
+
+        img {
+          opacity: 1;
+        }
+      }
 
       img {
+        opacity: 0;
+        transition: opacity 200ms ease-in-out;
         height: 100%;
         width: 100%;
         object-fit: cover;
@@ -74,14 +95,45 @@
         margin: 3%;
         padding: 0;
         font-family: "CaviarDreams";
+        text-indent: 1%;
+      }
+
+      hr {
+        margin: 0;
+        margin-inline: 2%;
+        border: 2px solid $light;
+        border-radius: 10px;
       }
 
       p {
         font-size: calc(var(--responsiveUnit) * 0.85);
         margin: 3%;
         padding: 0;
+        margin-inline: 3%;
         font-family: "Roboto";
+        //? single line ellipsis
+        // overflow: hidden;
+        // text-overflow: ellipsis;
+        // white-space: nowrap;
+        //? multi line ellipsis
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        white-space: pre-wrap;
       }
     }
+  }
+}
+
+@keyframes pulse {
+  0% {
+    background-color: transparent;
+  }
+  50% {
+    background-color: transparentize($color: $light, $amount: 0.5);
+  }
+  100% {
+    background-color: transparent;
   }
 }
