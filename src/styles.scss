@@ -11,7 +11,7 @@ $light: #f4f5f8;
 
 :root {
   --responsiveUnit: calc(1vmin + 1vmax);
-  --scrollbarWidth: 5px;
+  --scrollbarWidth: 10px;
 }
 
 html,
@@ -25,7 +25,6 @@ app-root {
   padding: 0;
   border: 0;
   overflow-x: hidden;
-  overflow-y: visible;
 }
 
 * {
@@ -33,58 +32,25 @@ app-root {
   transition: 50ms all;
 }
 
-//* CUSTOM SCROLLBAR [START]
-::-webkit-scrollbar {
-  width: var(--scrollbarWidth);
+html,
+body,
+app-root {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: stretch;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  overflow-x: hidden;
 }
-
-::-webkit-scrollbar-track {
-  background: $dark;
-}
-
-::-webkit-scrollbar-thumb {
-  background: $light;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: $medium;
-}
-//* CUSTOM SCROLLBAR [END]
 
 * {
-  //? Responsive Texts [START]
-  &[shy-txt_size="small"] {
-    font-size: calc(var(--responsiveUnit) * 1);
-  }
-  &[shy-txt_size="medium"] {
-    font-size: calc(var(--responsiveUnit) * 2);
-  }
-  &[shy-txt_size="large"] {
-    font-size: calc(var(--responsiveUnit) * 3);
-  }
-  //? Responsive Texts [END]
-
-  //? Responsive Images [START]
-  &[shy-img_size="small"] {
-    width: calc(var(--responsiveUnit) * 3);
-    height: calc(var(--responsiveUnit) * 3);
-  }
-  &[shy-img_size="medium"] {
-    width: calc(var(--responsiveUnit) * 6);
-    height: calc(var(--responsiveUnit) * 6);
-  }
-  &[shy-img_size="large"] {
-    width: calc(var(--responsiveUnit) * 9);
-    height: calc(var(--responsiveUnit) * 9);
-  }
-  //? Responsive Images [END]
-
-  &[shy-test="true"] {
-    font-size: var(--responsiveUnit);
-  }
+  font-family: monospace;
+  transition: 50ms all;
 }
 
-//* CUSTOM BUTTON [START]
+//* BUTTON [START]
 .shy-btn {
   border-radius: 5px;
   margin: 1%;
@@ -112,19 +78,68 @@ app-root {
     }
   }
 }
-//* CUSTOM BUTTON [END]
+//* BUTTON [END]
 
-//* CUSTOM INPUT [START]
+//* INPUT [START]
 //TODO
-//* CUSTOM INPUT [END]
+//* INPUT [END]
 
-//* CUSTOM TEXTAREA [START]
+//* TEXTAREA [START]
 //TODO
-//* CUSTOM TEXTAREA [END]
+//* TEXTAREA [END]
 
-//* CUSTOM ELEMENT [START]
+//* ELEMENT [START]
 //TODO
-//* CUSTOM ELEMENT [END]
+//* ELEMENT [END]
+
+//* SHY-TEMPLATES [START]
+* {
+  &[shy-txt_size="small"] {
+    font-size: calc(var(--responsiveUnit) * 1);
+  }
+  &[shy-txt_size="medium"] {
+    font-size: calc(var(--responsiveUnit) * 2);
+  }
+  &[shy-txt_size="large"] {
+    font-size: calc(var(--responsiveUnit) * 3);
+  }
+
+  &[shy-img_size="small"] {
+    width: calc(var(--responsiveUnit) * 3);
+    height: calc(var(--responsiveUnit) * 3);
+  }
+  &[shy-img_size="medium"] {
+    width: calc(var(--responsiveUnit) * 6);
+    height: calc(var(--responsiveUnit) * 6);
+  }
+  &[shy-img_size="large"] {
+    width: calc(var(--responsiveUnit) * 9);
+    height: calc(var(--responsiveUnit) * 9);
+  }
+
+  &[shy-test="true"] {
+    font-size: var(--responsiveUnit);
+  }
+}
+//* SHY-TEMPLATES [END]
+
+//* SCROLLBAR [START]
+::-webkit-scrollbar {
+  width: var(--scrollbarWidth);
+}
+
+::-webkit-scrollbar-track {
+  background: $dark;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $light;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: $medium;
+}
+//* SCROLLBAR [END]
 
 //* FONTS [START]
 @font-face {
