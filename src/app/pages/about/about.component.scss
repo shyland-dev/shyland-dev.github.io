@@ -20,21 +20,30 @@
     margin-left: 40%;
     margin-right: 40%;
     margin-bottom: 2%;
-    display: flex;
+    min-height: 20vh;
     justify-content: center;
     align-items: center;
-    min-height: 20vh;
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: column;
 
     //background
     background: transparentize($color: $void, $amount: 0.6);
     backdrop-filter: blur(10px);
 
     //border
-    border: 1px solid $light;
-    border-radius: 35%;
+    border: 4px solid transparentize($color: $dark, $amount: 0.5);
+    border-radius: 315px;
 
     // font
-    font-size: calc(var(--responsiveUnit) * 3.5);
+    font-size: calc(var(--responsiveUnit) * 1.5);
+    overflow: hidden;
+    &:hover {
+      border: 4px solid $light;
+      transition: 350ms;
+      transform: scale(1.05);
+      cursor: pointer;
+    }
 }
 
 #title{
@@ -59,6 +68,7 @@
   margin-right: 2%;
   margin-left: 2%;
   margin-top: 1%;
+  margin-bottom: 2%;
   box-shadow:
         -2px 2px 2px 2px yellow,
         -2px -6px 2px 2px orange,
