@@ -183,13 +183,13 @@ export class ProjectsComponent implements OnInit {
   }
 
   blurIframe() {
-    console.log(`[${this.title}#unblurIframe]`);
+    console.log(`[${this.title}#blurIframe]`);
 
     const iframeWrapper = document.getElementById('iframe-wrapper');
-    console.log(`[${this.title}#unblurIframe] iframeWrapper`, iframeWrapper);
+    console.log(`[${this.title}#blurIframe] iframeWrapper`, iframeWrapper);
 
     const iframe = document.getElementById('gallery-iframe') as HTMLIFrameElement;
-    console.log(`[${this.title}#unblurIframe] iframe`, iframe);
+    console.log(`[${this.title}#blurIframe] iframe`, iframe);
 
     iframeWrapper.classList.add('blur');
     iframe.classList.add('blur');
