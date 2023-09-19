@@ -134,20 +134,31 @@ export class ProjectsComponent implements OnInit {
 
     gallery.classList.add('open');
 
-    const iframe = document.getElementById('gallery-iframe') as HTMLIFrameElement;
-    console.log(`[${this.title}#openGallery] iframe`, iframe);
+    const galleryImg = document.getElementById('galleryImg') as HTMLImageElement;
+    console.log(`[${this.title}#openGallery] galleryImg`, galleryImg);
 
-    this.blurIframe();
-    iframe.setAttribute('src', this.projectArray[index].src);
+    galleryImg.src = this.projectArray[this.galleryIndex].image;
+  }
+
+  unblurGallery() {
+    const galleryImg = document.getElementById('galleryImg');
+    console.log(`[${this.title}#unblurGallery] galleryImg`, galleryImg);
+
+    galleryImg.classList.remove('blur');
   }
 
   closeGallery() {
     console.log(`[${this.title}#closeGallery]`);
 
     const gallery = document.getElementById('gallery');
-    console.log(`[${this.title}#openGallery] gallery`, gallery);
+    console.log(`[${this.title}#closeGallery] gallery`, gallery);
 
     gallery.classList.remove('open');
+
+    const galleryImg = document.getElementById('galleryImg') as HTMLImageElement;
+    console.log(`[${this.title}#closeGallery] galleryImg`, galleryImg);
+
+    galleryImg.classList.add('blur');
   }
 
   prevGalleryItem() {
@@ -159,11 +170,11 @@ export class ProjectsComponent implements OnInit {
 
     console.log(`[${this.title}#prevGalleryItem] (AFTER) galleryIndex`, this.galleryIndex);
 
-    const iframe = document.getElementById('gallery-iframe') as HTMLIFrameElement;
-    console.log(`[${this.title}#openGallery] iframe`, iframe);
+    const galleryImg = document.getElementById('galleryImg') as HTMLImageElement;
+    console.log(`[${this.title}#prevGalleryItem] galleryImg`, galleryImg);
 
-    this.blurIframe();
-    iframe.setAttribute('src', this.projectArray[this.galleryIndex].src);
+    galleryImg.classList.add('blur');
+    galleryImg.src = this.projectArray[this.galleryIndex].image;
   }
 
   nextGalleryItem() {
@@ -175,49 +186,10 @@ export class ProjectsComponent implements OnInit {
 
     console.log(`[${this.title}#nextGalleryItem] (AFTER) galleryIndex`, this.galleryIndex);
 
-    const iframe = document.getElementById('gallery-iframe') as HTMLIFrameElement;
-    console.log(`[${this.title}#openGallery] iframe`, iframe);
+    const galleryImg = document.getElementById('galleryImg') as HTMLImageElement;
+    console.log(`[${this.title}#nextGalleryItem] galleryImg`, galleryImg);
 
-    this.blurIframe();
-    iframe.setAttribute('src', this.projectArray[this.galleryIndex].src);
-  }
-
-  blurIframe() {
-    console.log(`[${this.title}#blurIframe]`);
-
-    const iframeWrapper = document.getElementById('iframe-wrapper');
-    console.log(`[${this.title}#blurIframe] iframeWrapper`, iframeWrapper);
-
-    const iframe = document.getElementById('gallery-iframe') as HTMLIFrameElement;
-    console.log(`[${this.title}#blurIframe] iframe`, iframe);
-
-    iframeWrapper.classList.add('blur');
-    iframe.classList.add('blur');
-  }
-
-  unblurIframe() {
-    console.log(`[${this.title}#unblurIframe]`);
-
-    const iframeWrapper = document.getElementById('iframe-wrapper');
-    console.log(`[${this.title}#unblurIframe] iframeWrapper`, iframeWrapper);
-
-    const iframe = document.getElementById('gallery-iframe') as HTMLIFrameElement;
-    console.log(`[${this.title}#unblurIframe] iframe`, iframe);
-
-    try {
-      const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
-      console.log(`[${this.title}#unblurIframe] iframeDoc`, iframeDoc);
-
-      if (iframeDoc.readyState == 'complete') {
-        iframe.contentWindow.onload = function () {
-          iframe.classList.remove('blur');
-        };
-      } else {
-        window.setTimeout(this.unblurIframe, 100);
-      }
-    } catch (error) {
-      iframeWrapper.classList.remove('blur');
-      iframe.classList.remove('blur');
-    }
+    galleryImg.classList.add('blur');
+    galleryImg.src = this.projectArray[this.galleryIndex].image;
   }
 }

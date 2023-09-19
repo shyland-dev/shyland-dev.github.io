@@ -27,31 +27,17 @@
     display: flex !important;
   }
 
-  #iframe-wrapper {
+  #galleryImg-wrapper {
     position: relative;
     height: 90%;
     width: 85%;
-    background: $light;
     overflow: hidden;
-    &::before {
-      content: none;
-    }
-    &.blur {
-      background: $medium;
 
-      &::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        animation: pulse 1s infinite;
-      }
-    }
-
-    iframe {
+    img {
       height: 100%;
       width: 100%;
-      border: none;
-      pointer-events: none;
+      object-fit: contain;
+      object-position: center;
       transition: all 250ms ease-in-out;
       &.blur {
         filter: blur(50px);
@@ -85,6 +71,13 @@
   #close {
     top: 2%;
     right: 2%;
+  }
+
+  @media (orientation: portrait) {
+    #galleryImg-wrapper {
+      height: 85%;
+      width: 75%;
+    }
   }
 }
 
