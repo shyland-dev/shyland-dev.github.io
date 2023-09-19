@@ -176,4 +176,8 @@ export class AppComponent {
     this.hasScrollbar = appRoot.scrollHeight > appRoot.clientHeight;
     console.log(`[${this.title}#detectScrollbar] hasScrollbar`, this.hasScrollbar);
   }
+
+  openLink(url) {
+    window.open(url, '_blank');
+  }
 }

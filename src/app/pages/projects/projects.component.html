@@ -2,6 +2,18 @@
   <div id="gallery">
     <div id="galleryImg-wrapper">
       <img id="galleryImg" class="blur" (load)="unblurGallery()">
+
+      <div id="galleryImgInfo">
+        <h1 (click)="app.openLink(projectArray[galleryIndex]['src'])" title="Visit {{projectArray[galleryIndex]['title']}}">
+          {{projectArray[galleryIndex]['title']}}
+        </h1>
+
+        <hr>
+
+        <p (click)="app.openLink(projectArray[galleryIndex]['src'])" title="Visit {{projectArray[galleryIndex]['title']}}">
+          {{projectArray[galleryIndex]['description']}}
+        </p>
+      </div>
     </div>
 
     <img *ngIf="galleryIndex != 0" class="gallery-button" id="prev" src="assets/imgs/SVGs/chevron-back.svg" alt="prev" (click)="prevGalleryItem()">
