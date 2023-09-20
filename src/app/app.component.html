@@ -49,27 +49,42 @@
     <div class="footer-wrapper" id="page_social">
       <div id="pageDiv">
         <ul *ngIf="allPages != []">
-          <li *ngFor="let page of allPages | keyvalue : defaultOrder" [attr.isActive]="currentPage == page.value['path']" (click)="redirectTo(page.value['path'], title)">
-            <a>
+          <li *ngFor="let page of allPages | keyvalue : defaultOrder" (click)="redirectTo(page.value['path'], title)">
+            <a [attr.isActive]="currentPage == page.value['path']">
               {{page.value['path']}}
             </a>
           </li>
-        </ul>
 
-        <ul *ngIf="allPages != []">
-          <li *ngFor="let page of allPages | keyvalue : defaultOrder" [attr.isActive]="currentPage == page.value['path']" (click)="redirectTo(page.value['path'], title)">
-            <a>
+          <!-- <li *ngFor="let page of allPages | keyvalue : defaultOrder" (click)="redirectTo(page.value['path'], title)">
+            <a [attr.isActive]="currentPage == page.value['path']">
               {{page.value['path']}}
             </a>
           </li>
-        </ul>
-
-        <ul *ngIf="allPages != []">
-          <li *ngFor="let page of allPages | keyvalue : defaultOrder" [attr.isActive]="currentPage == page.value['path']" (click)="redirectTo(page.value['path'], title)">
-            <a>
+          <li *ngFor="let page of allPages | keyvalue : defaultOrder" (click)="redirectTo(page.value['path'], title)">
+            <a [attr.isActive]="currentPage == page.value['path']">
               {{page.value['path']}}
             </a>
           </li>
+          <li *ngFor="let page of allPages | keyvalue : defaultOrder" (click)="redirectTo(page.value['path'], title)">
+            <a [attr.isActive]="currentPage == page.value['path']">
+              {{page.value['path']}}
+            </a>
+          </li>
+          <li *ngFor="let page of allPages | keyvalue : defaultOrder" (click)="redirectTo(page.value['path'], title)">
+            <a [attr.isActive]="currentPage == page.value['path']">
+              {{page.value['path']}}
+            </a>
+          </li>
+          <li *ngFor="let page of allPages | keyvalue : defaultOrder" (click)="redirectTo(page.value['path'], title)">
+            <a [attr.isActive]="currentPage == page.value['path']">
+              {{page.value['path']}}
+            </a>
+          </li>
+          <li *ngFor="let page of allPages | keyvalue : defaultOrder" (click)="redirectTo(page.value['path'], title)">
+            <a [attr.isActive]="currentPage == page.value['path']">
+              {{page.value['path']}}
+            </a>
+          </li> -->
         </ul>
       </div>
 
