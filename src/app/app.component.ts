@@ -61,6 +61,8 @@ export class AppComponent {
     window.onload = () => {
       console.log(`[${this.title}#window.onload]`);
 
+      this.stopLoading();
+
       this.currentPage = this.router.url.split('/')[1];
       if (this.currentPage == '' || this.currentPage == 'home') window.history.pushState({}, '', '/');
 
@@ -167,6 +169,19 @@ export class AppComponent {
 
     this.rainInterval = setInterval(rain, 25);
     console.log(`[${this.title}#setupRainbowCanvas] rainInterval`, this.rainInterval);
+  }
+
+  stopLoading() {
+    console.log(`[${this.title}#stopLoading]`);
+
+    const loader = document.getElementById('loader');
+    console.log(`[${this.title}#stopLoading] loader`, loader);
+
+    loader.className = 'hide';
+
+    setTimeout(() => {
+      loader.style.display = 'none';
+    }, 1000);
   }
 
   detectScrollbar() {

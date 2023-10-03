@@ -7,10 +7,53 @@
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <style>
+    #loader {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100vw;
+      height: 100vh;
+      position: fixed;
+      z-index: 9999;
+      background-color: #000;
+      color: #fff;
+      font-family: monospace;
+      font-weight: bold;
+      font-size: 8vmax;
+    }
+
+    #loader.hide {
+      animation: 1s fadeOut forwards;
+    }
+
+    #loader span {
+      display: inline-block;
+      animation: pulse 0.5s alternate infinite ease-in-out;
+    }
+
+    #loader span:nth-child(odd) {
+      animation-delay: 0.5s;
+    }
+
+    @keyframes pulse {
+      to {
+        transform: scale(0.8);
+        opacity: 0.5;
+      }
+    }
+  </style>
 </head>
 
 <body>
-  <app-root></app-root>
+  <div id="loader">
+    <span>{</span>
+    <span>}</span>
+  </div>
+
+  <app-root>
+  </app-root>
 </body>
 
 </html>
