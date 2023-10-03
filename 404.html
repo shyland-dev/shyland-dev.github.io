@@ -4,11 +4,54 @@
   <base href="https://shyland-dev.github.io/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <style>
+    #loader {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100vw;
+      height: 100vh;
+      position: fixed;
+      z-index: 9999;
+      background-color: #000;
+      color: #fff;
+      font-family: monospace;
+      font-weight: bold;
+      font-size: 8vmax;
+    }
+
+    #loader.hide {
+      animation: 1s fadeOut forwards;
+    }
+
+    #loader span {
+      display: inline-block;
+      animation: pulse 0.5s alternate infinite ease-in-out;
+    }
+
+    #loader span:nth-child(odd) {
+      animation-delay: 0.5s;
+    }
+
+    @keyframes pulse {
+      to {
+        transform: scale(0.8);
+        opacity: 0.5;
+      }
+    }
+  </style>
 <style>:root{--responsiveUnit:calc(1vmin + 1vmax);--scrollbarWidth:10px}html,body,app-root{height:100%;width:100%;display:flex;align-items:stretch;margin:0;padding:0;border:0;overflow-x:hidden}*{font-family:monospace;transition:50ms all}</style><link rel="stylesheet" href="styles.ab3ac024190db413.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="styles.ab3ac024190db413.css"></noscript></head>
 
 <body>
-  <app-root></app-root>
-<script src="runtime.6589a674a0ed5535.js" type="module"></script><script src="polyfills.6e49f516caffdb8d.js" type="module"></script><script src="main.2d6ec94e27b957ef.js" type="module"></script>
+  <div id="loader">
+    <span>{</span>
+    <span>}</span>
+  </div>
+
+  <app-root>
+  </app-root>
+<script src="runtime.6589a674a0ed5535.js" type="module"></script><script src="polyfills.6e49f516caffdb8d.js" type="module"></script><script src="main.f6bea4f33cc3ae52.js" type="module"></script>
 
 
 </body></html>
