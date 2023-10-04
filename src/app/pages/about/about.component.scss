@@ -14,63 +14,63 @@
   font-size: calc(var(--responsiveUnit) * 1.5);
 }
 
-#quemSomos{
-    //allign page
-    margin-top: 1.5%;
-    margin-left: 40%;
-    margin-right: 40%;
-    margin-bottom: 2%;
-    min-height: 20vh;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    display: flex;
-    flex-direction: column;
+#quemSomos {
+  //allign page
+  margin-top: 1.5%;
+  margin-left: 40%;
+  margin-right: 40%;
+  margin-bottom: 2%;
+  min-height: 20vh;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  display: flex;
+  flex-direction: column;
 
-    //background
-    background: transparentize($color: $void, $amount: 0.6);
-    backdrop-filter: blur(10px);
+  //background
+  background: transparentize($color: $void, $amount: 0.6);
+  backdrop-filter: blur(10px);
 
-    //border
-    border: 4px solid transparentize($color: $dark, $amount: 0.5);
-    border-radius: 315px;
+  //border
+  border: 4px solid transparentize($color: $dark, $amount: 0.5);
+  border-radius: 315px;
 
-    // font
-    font-size: calc(var(--responsiveUnit) * 1.5);
-    overflow: hidden;
-    &:hover {
-      border: 4px solid $light;
-      transition: 350ms;
-      transform: scale(1.05);
-      cursor: pointer;
-    }
+  // font
+  font-size: calc(var(--responsiveUnit) * 1.5);
+  overflow: hidden;
+  &:hover {
+    border: 4px solid $light;
+    transition: 350ms;
+    transform: scale(1.05);
+    cursor: pointer;
+  }
 }
 
-#title{
+#title {
   display: flex;
   justify-content: center;
   align-items: center;
   // height: 10vh;
 }
 
-.classCenter{
+.classCenter {
   text-align: center;
   background: transparentize($color: $void, $amount: 0.6);
-  backdrop-filter: blur(10px)
+  backdrop-filter: blur(10px);
 }
 
-.card{
+.card {
   display: flex;
 }
 
-.cardAvatar{
+.cardAvatar {
   border-radius: 70%;
   margin-right: 2%;
   margin-left: 2%;
   margin-top: 1%;
   margin-bottom: 2%;
   box-shadow:
-        -2px 2px 2px 2px yellow,
-        -2px -6px 2px 2px orange,
-        2px 4px 2px 2px cyan;
+    -2px 2px 2px 2px yellow,
+    -2px -6px 2px 2px orange,
+    2px 4px 2px 2px cyan;
 }
