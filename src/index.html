@@ -28,19 +28,31 @@
       animation: 1s fadeOut forwards;
     }
 
-    #loader span {
-      display: inline-block;
-      animation: pulse 0.5s alternate infinite ease-in-out;
+    .spinner-container {
+      width: 150px;
+      height: 150px;
+      position: relative;
+      margin: 30px auto;
+      overflow: hidden;
     }
 
-    #loader span:nth-child(odd) {
-      animation-delay: 0.5s;
+    .spinner {
+      position: absolute;
+      width: calc(100% - 9.9px);
+      height: calc(100% - 9.9px);
+      border: 5px solid transparent;
+      border-radius: 50%;
+      border-top-color: #fff;
+      animation: spin 5s cubic-bezier(0.17, 0.49, 0.96, 0.79) infinite;
     }
 
-    @keyframes pulse {
+    @keyframes spin {
+      from {
+        transform: rotate(0deg);
+      }
+
       to {
-        transform: scale(0.8);
-        opacity: 0.5;
+        transform: rotate(360deg);
       }
     }
   </style>
@@ -48,8 +60,19 @@
 
 <body>
   <div id="loader">
-    <span>{</span>
-    <span>}</span>
+    <div class="spinner-container">
+      <div class="spinner">
+        <div class="spinner">
+          <div class="spinner">
+            <div class="spinner">
+              <div class="spinner">
+                <div class="spinner"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <app-root>
