@@ -181,7 +181,7 @@ export class AppComponent {
 
     setTimeout(() => {
       loader.style.display = 'none';
-    }, 1000);
+    }, 2000);
   }
 
   detectScrollbar() {

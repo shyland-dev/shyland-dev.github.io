@@ -12,6 +12,7 @@ $light: #f4f5f8;
 :root {
   --responsiveUnit: calc(1vmin + 1vmax);
   --scrollbarWidth: 10px;
+  --headerHeight: calc(var(--responsiveUnit) * 5) ;
 }
 
 html,

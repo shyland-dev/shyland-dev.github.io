@@ -1,15 +1,19 @@
 @import "/src/styles.scss";
 
 :host {
+  display: flex;
+  justify-content: center;
   height: max-content;
   width: 100%;
-  margin-top: calc(var(--responsiveUnit) * 5);
-  padding-block: 1%;
+  margin-top: var(--headerHeight);
   color: $light;
 }
 
 #content {
   height: 100%;
+  padding-block: 1%;
   width: 100%;
+  max-width: 1300px;
   font-size: calc(var(--responsiveUnit) * 1.5);
+  backdrop-filter: blur(10px);
 }
