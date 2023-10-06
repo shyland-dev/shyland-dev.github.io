@@ -24,3 +24,11 @@ img.custom {
   width: calc(var(--responsiveUnit) * 40);
   height: calc(var(--responsiveUnit) * 4);
 }
+
+.vendor {
+  @include allVendors(transition, all 10s ease-in-out);
+  background: lime;
+  &:hover {
+    @include allVendors(transform, rotate(145deg));
+  }
+}
