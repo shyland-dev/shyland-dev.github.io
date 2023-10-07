@@ -6,7 +6,7 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 
   <style>
-    #loader {
+    #loader-wrapper {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -14,6 +14,14 @@
       height: 100vh;
       position: fixed;
       z-index: 9999;
+    }
+
+    #loader {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      aspect-ratio: 1;
+      width: 100%;
       background-color: #000;
       color: #fff;
       font-family: monospace;
@@ -22,7 +30,8 @@
     }
 
     #loader.hide {
-      animation: 2s fadeOut forwards;
+      animation: 1.5s rotateOutSquare forwards;
+      animation-timing-function: ease-in;
     }
 
     .spinner-container {
@@ -53,17 +62,19 @@
       }
     }
   </style>
-<style>:root{--responsiveUnit:calc(1vmin + 1vmax);--scrollbarWidth:10px;--headerHeight:calc(var(--responsiveUnit) * 5)}html,body,app-root{height:100%;width:100%;display:flex;align-items:stretch;margin:0;padding:0;border:0;overflow-x:hidden}*{font-family:monospace;transition:50ms all}</style><link rel="stylesheet" href="styles.74d48500843da84a.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="styles.74d48500843da84a.css"></noscript></head>
+<style>:root{--responsiveUnit:calc(1vmin + 1vmax);--scrollbarWidth:10px;--headerHeight:calc(var(--responsiveUnit) * 5)}html,body,app-root{height:100%;width:100%;display:flex;align-items:stretch;margin:0;padding:0;border:0;overflow-x:hidden}*{font-family:monospace;transition:50ms all}</style><link rel="stylesheet" href="styles.57ff7c465f8509df.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="styles.57ff7c465f8509df.css"></noscript></head>
 
 <body>
-  <div id="loader">
-    <div class="spinner-container">
-      <div class="spinner">
+  <div id="loader-wrapper">
+    <div id="loader">
+      <div class="spinner-container">
         <div class="spinner">
           <div class="spinner">
             <div class="spinner">
               <div class="spinner">
-                <div class="spinner"></div>
+                <div class="spinner">
+                  <div class="spinner"></div>
+                </div>
               </div>
             </div>
           </div>
@@ -73,7 +84,7 @@
   </div>
 
   <app-root></app-root>
-<script src="runtime.6589a674a0ed5535.js" type="module"></script><script src="polyfills.6e49f516caffdb8d.js" type="module"></script><script src="main.d7720cb3b7bb83ab.js" type="module"></script>
+<script src="runtime.6589a674a0ed5535.js" type="module"></script><script src="polyfills.6e49f516caffdb8d.js" type="module"></script><script src="main.6f13d24500776b58.js" type="module"></script>
 
 
 </body></html>
