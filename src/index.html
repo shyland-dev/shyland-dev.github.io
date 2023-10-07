@@ -9,7 +9,7 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 
   <style>
-    #loader {
+    #loader-wrapper {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -17,6 +17,14 @@
       height: 100vh;
       position: fixed;
       z-index: 9999;
+    }
+
+    #loader {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      aspect-ratio: 1;
+      width: 100%;
       background-color: #000;
       color: #fff;
       font-family: monospace;
@@ -25,7 +33,8 @@
     }
 
     #loader.hide {
-      animation: 2s fadeOut forwards;
+      animation: 1.5s rotateOutSquare forwards;
+      animation-timing-function: ease-in;
     }
 
     .spinner-container {
@@ -59,14 +68,16 @@
 </head>
 
 <body>
-  <div id="loader">
-    <div class="spinner-container">
-      <div class="spinner">
+  <div id="loader-wrapper">
+    <div id="loader">
+      <div class="spinner-container">
         <div class="spinner">
           <div class="spinner">
             <div class="spinner">
               <div class="spinner">
-                <div class="spinner"></div>
+                <div class="spinner">
+                  <div class="spinner"></div>
+                </div>
               </div>
             </div>
           </div>

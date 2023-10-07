@@ -174,14 +174,18 @@ export class AppComponent {
   stopLoading() {
     console.log(`[${this.title}#stopLoading]`);
 
+    const loaderWrapper = document.getElementById('loader-wrapper');
+    console.log(`[${this.title}#stopLoading] loaderWrapper`, loaderWrapper);
+
     const loader = document.getElementById('loader');
     console.log(`[${this.title}#stopLoading] loader`, loader);
 
     loader.className = 'hide';
 
     setTimeout(() => {
+      loaderWrapper.style.display = 'none';
       loader.style.display = 'none';
-    }, 2000);
+    }, 1500);
   }
 
   detectScrollbar() {
