@@ -44,7 +44,7 @@ header {
   display: flex;
   align-items: stretch;
   justify-content: space-around;
-  background: transparentize($color: $void, $amount: 0.8);
+  background: transparentize($color: $dark, $amount: 0.8);
   backdrop-filter: blur(5px);
   border-bottom: calc(var(--responsiveUnit) * 0.1) solid $medium;
   z-index: 2;
