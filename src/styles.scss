@@ -265,17 +265,14 @@ app-root {
 @keyframes rotateOutCircle {
   0% {
     transform: scale(1) rotate(0deg);
-    aspect-ratio: 1;
-    clip-path: circle(80%);
+    clip-path: circle(100%);
   }
   50% {
-    transform: scale(0.5) rotate(-180deg);;
-    aspect-ratio: 1;
+    transform: scale(0.5) rotate(-180deg);
     clip-path: circle(40%);
   }
   100% {
     transform: scale(0) rotate(-360deg);
-    aspect-ratio: 1;
     clip-path: circle(0%);
   }
 }

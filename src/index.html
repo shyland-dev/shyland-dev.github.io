@@ -9,22 +9,15 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 
   <style>
-    #loader-wrapper {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 100vw;
-      height: 100vh;
-      position: fixed;
-      z-index: 9999;
-    }
-
     #loader {
       display: flex;
       justify-content: center;
       align-items: center;
       aspect-ratio: 1;
-      width: 100%;
+      width: 100vw;
+      height: 100vh;
+      position: fixed;
+      z-index: 9999;
       background-color: #000;
       color: #fff;
       font-family: monospace;
@@ -58,16 +51,14 @@
 </head>
 
 <body>
-  <div id="loader-wrapper">
-    <div id="loader">
-      <div class="spinner-container">
+  <div id="loader">
+    <div class="spinner-container">
+      <div class="spinner">
         <div class="spinner">
           <div class="spinner">
             <div class="spinner">
               <div class="spinner">
-                <div class="spinner">
-                  <div class="spinner"></div>
-                </div>
+                <div class="spinner"></div>
               </div>
             </div>
           </div>
