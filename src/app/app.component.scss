@@ -38,9 +38,7 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  min-height: var(--headerHeight);
-  max-height: var(--headerHeight);
-  height: var(--headerHeight);
+  @include fixedHeight(var(--headerHeight));
   display: flex;
   align-items: stretch;
   justify-content: space-around;
@@ -70,9 +68,7 @@ header {
 
     img {
       border-radius: 50%;
-      min-height: calc(var(--responsiveUnit) * 3);
-      max-height: calc(var(--responsiveUnit) * 3);
-      height: calc(var(--responsiveUnit) * 3);
+      @include fixedHeight(calc(var(--responsiveUnit) * 3));
     }
 
     h1 {
@@ -127,9 +123,7 @@ footer {
       width: 33.3%;
 
       img {
-        min-width: calc(var(--responsiveUnit) * 10);
-        max-width: calc(var(--responsiveUnit) * 10);
-        width: calc(var(--responsiveUnit) * 10);
+        @include fixedWidth(calc(var(--responsiveUnit) * 10));
         height: auto;
         margin: 0;
         padding: 0;
@@ -161,9 +155,7 @@ footer {
           background: $light;
           color: $dark;
           box-sizing: border-box;
-          min-width: 60%;
-          max-width: 60%;
-          width: 60%;
+          @include fixedWidth(60%);
           height: 100%;
           border-top-left-radius: 10px;
           border-bottom-left-radius: 10px;
@@ -180,9 +172,7 @@ footer {
           display: flex;
           align-items: center;
           justify-content: center;
-          min-width: 20%;
-          max-width: 20%;
-          width: 20%;
+          @include fixedWidth(20%);
           border-top-right-radius: 10px;
           border-bottom-right-radius: 10px;
           border: 1px solid $medium;
@@ -206,7 +196,6 @@ footer {
 
   #page_social {
     justify-content: space-around;
-    // justify-content: space-evenly;
 
     #pageDiv {
       display: flex;
@@ -282,9 +271,7 @@ footer {
         img {
           filter: invert(1);
           width: auto;
-          min-height: calc(var(--responsiveUnit) * 2);
-          max-height: calc(var(--responsiveUnit) * 2);
-          height: calc(var(--responsiveUnit) * 2);
+          @include fixedHeight(calc(var(--responsiveUnit) * 2));
         }
       }
     }
@@ -418,9 +405,7 @@ footer {
         width: 100%;
 
         img {
-          min-width: calc(var(--responsiveUnit) * 15);
-          max-width: calc(var(--responsiveUnit) * 15);
-          width: calc(var(--responsiveUnit) * 15);
+          @include fixedWidth(calc(var(--responsiveUnit) * 15));
           height: auto;
           margin: 0;
           padding: 0;
@@ -445,7 +430,6 @@ footer {
           width: 100%;
 
           input {
-            // height: 100%;
             font-size: calc(var(--responsiveUnit) * 1.5);
           }
 
@@ -483,9 +467,7 @@ footer {
 
         a {
           img {
-            min-height: calc(var(--responsiveUnit) * 3);
-            max-height: calc(var(--responsiveUnit) * 3);
-            height: calc(var(--responsiveUnit) * 3);
+            @include fixedHeight(calc(var(--responsiveUnit) * 3));
           }
         }
       }
