@@ -262,20 +262,20 @@ app-root {
   }
 }
 
-@keyframes rotateOutSquare {
+@keyframes rotateOutCircle {
   0% {
     transform: scale(1) rotate(0deg);
+    aspect-ratio: 1;
+    clip-path: circle(85%);
   }
   50% {
     aspect-ratio: 1;
-    width: calc(var(--responsiveUnit) * 10);
-    // height: calc(var(--responsiveUnit) * 10);
-    border-radius: 50%;
+    clip-path: circle(55%);
   }
   100% {
     transform: scale(0) rotate(-360deg);
     aspect-ratio: 1;
-    border-radius: 50%;
+    clip-path: circle(40%);
   }
 }
 
@@ -302,6 +302,16 @@ app-root {
     transform: scale(0);
     opacity: 0;
     filter: blur(20px);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
   }
 }
 

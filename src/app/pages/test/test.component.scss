@@ -32,3 +32,9 @@ img.custom {
     @include allVendors(transform, rotate(145deg));
   }
 }
+
+.animationTest {
+  @include fixedHeight(100vmax);
+  @include fixedWidth(100vmax);
+  background: $light;
+}
