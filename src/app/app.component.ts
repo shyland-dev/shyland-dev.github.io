@@ -177,7 +177,11 @@ export class AppComponent {
     const loader = document.getElementById('loader');
     console.log(`[${this.title}#stopLoading] loader`, loader);
 
-    loader.className = 'hide';
+    const spinnerWrapper = document.getElementById('spinner-wrapper');
+    console.log(`[${this.title}#stopLoading] spinnerWrapper`, spinnerWrapper);
+
+    // loader.className = 'hide';
+    spinnerWrapper.className = 'hide';
 
     setTimeout(() => {
       loader.style.display = 'none';
