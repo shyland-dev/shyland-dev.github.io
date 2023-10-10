@@ -68,12 +68,12 @@ header {
 
     img {
       border-radius: 50%;
-      @include fixedHeight(calc(var(--responsiveUnit) * 3));
+      @include fixedHeight(calc(var(--responsiveUnit) * 2.5));
     }
 
     h1 {
       padding-right: 5%;
-      font-size: calc(var(--responsiveUnit) * 1.5);
+      font-size: calc(var(--responsiveUnit) * 1);
     }
   }
 
@@ -83,7 +83,7 @@ header {
     justify-content: center;
 
     a {
-      font-size: calc(var(--responsiveUnit) * 0.92);
+      font-size: calc(var(--responsiveUnit) * 0.7);
       margin: 1%;
       padding: 3%;
       width: 100%;
@@ -105,6 +105,7 @@ header {
 
 footer {
   width: 100%;
+  padding-bottom: 2%;
   border-top: calc(var(--responsiveUnit) * 0.1) solid $medium;
   background: transparentize($color: $void, $amount: 0.8);
   backdrop-filter: blur(5px);
@@ -127,6 +128,9 @@ footer {
         height: auto;
         margin: 0;
         padding: 0;
+        &:hover {
+          cursor: pointer;
+        }
       }
     }
 
@@ -138,7 +142,7 @@ footer {
       width: 66.6%;
 
       p {
-        font-size: calc(var(--responsiveUnit) * 1);
+        font-size: calc(var(--responsiveUnit) * 0.8);
         margin: 0;
         margin-block: 1%;
         height: 30%;
@@ -162,7 +166,7 @@ footer {
           border: 1px solid $void;
           padding: 1%;
           transition: 0.3s all;
-          font-size: calc(var(--responsiveUnit) * 1.1);
+          font-size: calc(var(--responsiveUnit) * 0.8);
           &:focus {
             border: 1px solid $light;
           }
@@ -179,7 +183,7 @@ footer {
           border-left: 2px solid $medium;
           padding: 1%;
           transition: 0.3s all;
-          font-size: calc(var(--responsiveUnit) * 1.1);
+          font-size: calc(var(--responsiveUnit) * 0.9);
           background: transparentize($color: $light, $amount: 0.8);
           backdrop-filter: blur(5px);
           color: $light;
@@ -220,13 +224,13 @@ footer {
           margin-right: 15%;
 
           &::marker {
-            font-size: calc(var(--responsiveUnit) * 0.85);
+            font-size: calc(var(--responsiveUnit) * 0.7);
             padding: 0;
             margin: 0;
           }
 
           a {
-            font-size: calc(var(--responsiveUnit) * 0.85);
+            font-size: calc(var(--responsiveUnit) * 0.7);
             display: flex;
             color: $medium;
             border-radius: 5px;
@@ -271,7 +275,7 @@ footer {
         img {
           filter: invert(1);
           width: auto;
-          @include fixedHeight(calc(var(--responsiveUnit) * 2));
+          @include fixedHeight(calc(var(--responsiveUnit) * 1.5));
         }
       }
     }
@@ -285,11 +289,11 @@ footer {
       align-items: center;
 
       p {
-        font-size: calc(var(--responsiveUnit) * 0.7);
+        font-size: calc(var(--responsiveUnit) * 0.5);
       }
 
       a {
-        font-size: calc(var(--responsiveUnit) * 0.93);
+        font-size: calc(var(--responsiveUnit) * 0.7);
         text-decoration: underline;
         color: $medium;
         white-space: nowrap;
@@ -373,10 +377,10 @@ footer {
     nav {
       border-radius: 10px;
       background-image: url("../assets/imgs/SVGs/menu.svg");
-      background-position: left top;
+      background-position: center;
       background-repeat: no-repeat;
-      background-size: calc(var(--responsiveUnit) * 5);
-      width: calc(var(--responsiveUnit) * 5);
+      background-size: calc(var(--responsiveUnit) * 3);
+      width: calc(var(--responsiveUnit) * 3);
       filter: invert(1);
       transition: all 0.8s ease-in-out;
       &:hover {
@@ -450,15 +454,14 @@ footer {
         ul {
           li {
             margin-right: 12.5%;
-
             &::marker {
               font-size: calc(var(--responsiveUnit) * 1.2);
             }
-          }
-        }
 
-        a {
-          font-size: calc(var(--responsiveUnit) * 1.2);
+            a {
+              font-size: calc(var(--responsiveUnit) * 1.2);
+            }
+          }
         }
       }
 

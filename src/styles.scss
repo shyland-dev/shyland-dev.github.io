@@ -12,25 +12,7 @@ $light: #f4f5f8;
 :root {
   --responsiveUnit: calc(1vmin + 1vmax);
   --scrollbarWidth: 10px;
-  --headerHeight: calc(var(--responsiveUnit) * 5);
-}
-
-@mixin fixedHeight($height) {
-  height: $height;
-  min-height: $height;
-  max-height: $height;
-}
-
-@mixin fixedWidth($width) {
-  width: $width;
-  min-width: $width;
-  max-width: $width;
-}
-
-@mixin allVendors($property, $args) {
-  @each $prefix in ("-webkit-", "-moz-", "-ms-", "-o-", "") {
-    #{$prefix + $property}: $args;
-  }
+  --headerHeight: calc(var(--responsiveUnit) * 4);
 }
 
 html,
@@ -123,6 +105,26 @@ app-root {
   }
 }
 //* SHY-TEMPLATES [END]
+
+//* MIXIN [START]
+@mixin fixedHeight($height) {
+  height: $height;
+  min-height: $height;
+  max-height: $height;
+}
+
+@mixin fixedWidth($width) {
+  width: $width;
+  min-width: $width;
+  max-width: $width;
+}
+
+@mixin allVendors($property, $args) {
+  @each $prefix in ("-webkit-", "-moz-", "-ms-", "-o-", "") {
+    #{$prefix + $property}: $args;
+  }
+}
+//* MIXIN [END]
 
 //* SCROLLBAR [START]
 ::-webkit-scrollbar {
