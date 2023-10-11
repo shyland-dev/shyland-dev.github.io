@@ -1,6 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { AppComponent } from '../../app.component';
-
 
 @Component({
   selector: 'app-about',
@@ -34,5 +34,5 @@ export class AboutComponent implements OnInit {
     this.updateView();
   }
 
-  defaultOrder() { return 0;}
+  defaultOrder() { return 0; }
 }
