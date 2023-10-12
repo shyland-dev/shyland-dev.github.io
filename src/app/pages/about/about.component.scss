@@ -1,5 +1,131 @@
 @import "/src/styles.scss";
 
+@mixin cardExpand($fromWidth: 0%, $toWidth: 100%, $fromHeight: 0%, $toHeight: 100%) {
+  @keyframes cardExpand {
+    from {
+      width: $fromWidth;
+      height: $fromHeight;
+    }
+    to {
+      width: $toWidth;
+      height: $toHeight;
+    }
+  }
+}
+
+@mixin cardExpandReverse($fromWidth: 0%, $toWidth: 100%, $fromHeight: 0%, $toHeight: 100%) {
+  @keyframes cardExpandReverse {
+    from {
+      width: $fromWidth;
+      height: $fromHeight;
+    }
+    to {
+      width: $toWidth;
+      height: $toHeight;
+    }
+  }
+}
+
+@mixin cardContract($fromWidth: 100%, $toWidth: 0%, $fromHeight: 0%, $toHeight: 100%) {
+  @keyframes cardContract {
+    from {
+      width: $fromWidth;
+      height: $fromHeight;
+      opacity: 1;
+    }
+    to {
+      width: $toWidth;
+      height: $toHeight;
+      opacity: 0;
+    }
+  }
+}
+
+@mixin cardContractReverse($fromWidth: 100%, $toWidth: 0%, $fromHeight: 0%, $toHeight: 100%) {
+  @keyframes cardContractReverse {
+    from {
+      width: $fromWidth;
+      height: $fromHeight;
+      opacity: 0;
+    }
+    to {
+      width: $toWidth;
+      height: $toHeight;
+      opacity: 1;
+    }
+  }
+}
+
+@keyframes cardPreviewExpand {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 30%;
+  }
+}
+
+@keyframes cardPreviewContract {
+  from {
+    width: 30%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes cardContentExpand {
+  from {
+    height: 0;
+    width: 0;
+  }
+  to {
+    height: 100%;
+    width: 66%;
+  }
+}
+
+@keyframes cardContentContract {
+  from {
+    height: 100%;
+    width: 66%;
+  }
+  to {
+    height: 0;
+    width: 0;
+  }
+}
+
+@keyframes cardCloseExpand {
+  from {
+    height: 0;
+    width: 0;
+    opacity: 0;
+  }
+  to {
+    // height: calc(var(--responsiveUnit) * 3);
+    // width: calc(var(--responsiveUnit) * 3);
+    @include fixedHeight(calc(var(--responsiveUnit) * 3));
+    @include fixedWidth(calc(var(--responsiveUnit) * 3));
+    opacity: 1;
+  }
+}
+
+@keyframes cardCloseContract {
+  from {
+    // height: calc(var(--responsiveUnit) * 3);
+    // width: calc(var(--responsiveUnit) * 3);
+    @include fixedHeight(calc(var(--responsiveUnit) * 3));
+    @include fixedWidth(calc(var(--responsiveUnit) * 3));
+    opacity: 1;
+  }
+  to {
+    height: 0;
+    width: 0;
+    opacity: 0;
+  }
+}
+
 :host {
   display: flex;
   justify-content: center;
@@ -74,7 +200,6 @@
     height: var(--cardHeight);
     width: var(--cardWidth);
     display: flex;
-    flex-wrap: wrap;
     border-radius: 10px;
     padding: 1%;
     margin: 1%;
@@ -105,6 +230,12 @@
       transform: scale(0.95);
     }
 
+    .cardOpen {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+    }
+
     .cardPreview {
       // @include fixedHeight(100%);
       // @include fixedWidth(100%);
@@ -121,7 +252,7 @@
         justify-content: center;
 
         img {
-          @include fixedWidth(100%);
+          @include fixedWidth(85%);
           aspect-ratio: 1;
           border-radius: 50%;
           background: $medium;
@@ -158,9 +289,9 @@
   }
 
   .card[expanded="true"] {
-    @include customExpand(--cardWidth, 90%, --cardHeight, calc(var(--cardHeight) * 2.5));
-    animation: customExpand;
-    animation-timing-function: ease-in;
+    @include cardExpand(--cardWidth, 90%, --cardHeight, calc(var(--cardHeight) * 2.5));
+    animation: cardExpand;
+    animation-timing-function: ease-in-out;
     animation-duration: 1.5s;
     animation-fill-mode: forwards;
     border: calc(var(--responsiveUnit) * 0.2) solid $light;
@@ -171,9 +302,45 @@
     &:active {
       transform: scale(1);
     }
+    &.reverse {
+      @include cardExpandReverse(90%, --cardWidth, calc(var(--cardHeight) * 2.5), --cardHeight);
+      animation: cardExpandReverse;
+      animation-timing-function: ease-in-out;
+      animation-duration: 1.5s;
+      animation-fill-mode: forwards;
+
+      .cardPreview {
+        animation: cardPreviewContract;
+        animation-timing-function: ease-in-out;
+        animation-duration: 1.5s;
+        animation-fill-mode: forwards;
+      }
+
+      .cardContent {
+        animation: cardContentContract;
+        animation-timing-function: ease-in-out;
+        animation-duration: 1.5s;
+        animation-fill-mode: forwards;
+      }
+
+      .cardClose {
+        animation: cardCloseContract;
+        animation-timing-function: ease-in-out;
+        animation-duration: 1.5s;
+        animation-fill-mode: forwards;
+      }
+    }
+
+    .cardOpen {
+      display: none;
+    }
 
     .cardPreview {
       width: 30%;
+      animation: cardPreviewExpand;
+      animation-timing-function: ease-in-out;
+      animation-duration: 1.5s;
+      animation-fill-mode: forwards;
 
       .cardAvatar {
         img {
@@ -192,6 +359,10 @@
     .cardContent {
       height: 100%;
       width: 66%;
+      animation: cardContentExpand;
+      animation-timing-function: ease-in-out;
+      animation-duration: 1.5s;
+      animation-fill-mode: forwards;
       padding-inline: 2%;
 
       .cardName {
@@ -215,27 +386,39 @@
       position: absolute;
       top: 0;
       right: 0;
+      z-index: 1;
       display: flex;
       align-items: center;
       justify-content: center;
       @include fixedHeight(calc(var(--responsiveUnit) * 3));
       @include fixedWidth(calc(var(--responsiveUnit) * 3));
+      animation: cardCloseExpand;
+      animation-timing-function: ease-in-out;
+      animation-duration: 1.5s;
+      animation-fill-mode: forwards;
 
       img {
         aspect-ratio: 1;
         width: 100%;
+        filter: invert(1);
       }
     }
   }
 
   .card[expanded="false"] {
-    @include customContract(--cardWidth, 0, --cardHeight, 0);
-    animation: customContract;
-    animation-timing-function: ease-in;
+    @include cardContract(--cardWidth, 0, --cardHeight, 0);
+    animation: cardContract;
+    animation-timing-function: ease-in-out;
     animation-duration: 1.5s;
     animation-fill-mode: forwards;
     padding: 0;
     margin: 0;
-    border: 0;
+    &.reverse {
+      @include cardContractReverse(0, --cardWidth, 0, --cardHeight);
+      animation: cardContractReverse;
+      animation-timing-function: ease-in-out;
+      animation-duration: 1.5s;
+      animation-fill-mode: forwards;
+    }
   }
 }

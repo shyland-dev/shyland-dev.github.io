@@ -41,7 +41,9 @@
   </div>
 
   <div class="cards">
-    <div class="card" *ngFor="let card of cardArray | keyvalue : defaultOrder" id="card{{card.key}}" (click)="expandCard(card.key)" [attr.expanded]="expandedCardIndex != '-1' ? expandedCardIndex == card.key : 'none'">
+    <div class="card" *ngFor="let card of cardArray | keyvalue : defaultOrder" id="card{{card.key}}" [attr.expanded]="expandedCardIndex != '-1' ? expandedCardIndex == card.key : 'none'">
+      <div class="cardOpen" (click)="expandCard(card.key)"></div>
+
       <div class="cardPreview">
         <div class=cardAvatar>
           <img alt="avatar" src="{{card.value['img']}}">
@@ -84,7 +86,7 @@
       </div>
 
       <div class="cardClose">
-        <img alt="close" src="assets/imgs/SVGs/close.svg" (click)="expandCard('-1')">
+        <img alt="close" src="assets/imgs/SVGs/close.svg" (click)="collapseCard()">
       </div>
     </div>
   </div>

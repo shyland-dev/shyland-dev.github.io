@@ -93,4 +93,32 @@ export class AboutComponent implements OnInit {
 
     console.log(`[${this.title}#expandCard] expandedCardIndex`, this.expandedCardIndex);
   }
+
+  collapseCard() {
+    console.log(`[${this.title}#collapseCard]`);
+
+    // this.expandedCardIndex = '-1';
+    // console.log(`[${this.title}#collapseCard] expandedCardIndex`, this.expandedCardIndex);
+
+    const cards = Array.from(document.getElementsByClassName('card'));
+    console.log(`[${this.title}#collapseCard] cards`, cards);
+
+    for (const card of cards) {
+      console.log(`[${this.title}#collapseCard] card`, card);
+
+      card.classList.add('reverse');
+    }
+
+    setTimeout(() => {
+      for (const card of cards) {
+        console.log(`[${this.title}#collapseCard] card`, card);
+
+        card.classList.remove('reverse');
+      }
+
+      this.expandedCardIndex = '-1';
+      console.log(`[${this.title}#collapseCard] expandedCardIndex`, this.expandedCardIndex);
+    }, 1500);
+
+  }
 }
