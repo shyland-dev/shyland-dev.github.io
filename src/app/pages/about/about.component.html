@@ -61,9 +61,9 @@
 
         <div class="cardDescription">
           <p>
-            <span *ngFor="let role of card.value['roles'] | keyvalue : defaultOrder">
+            <span *ngFor="let role of card.value['roles'] | keyvalue : defaultOrder" class="roleSpan" [attr.isOdd]="(+role.key) % 2">
               {{role.value}}
-              <span *ngIf="role.key != card.value['roles'].length - 1"> | </span>
+              <span *ngIf="role.key != card.value['roles'].length - 1" class="separatorSpan"> | </span>
             </span>
 
             {{card.value['description']}}

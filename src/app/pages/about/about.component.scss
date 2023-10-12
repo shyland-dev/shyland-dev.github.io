@@ -105,8 +105,10 @@
   to {
     // height: calc(var(--responsiveUnit) * 3);
     // width: calc(var(--responsiveUnit) * 3);
-    @include fixedHeight(calc(var(--responsiveUnit) * 3));
-    @include fixedWidth(calc(var(--responsiveUnit) * 3));
+    // @include fixedHeight(calc(var(--responsiveUnit) * 3));
+    // @include fixedWidth(calc(var(--responsiveUnit) * 3));
+    height: 10%;
+    width: 5%;
     opacity: 1;
   }
 }
@@ -115,8 +117,10 @@
   from {
     // height: calc(var(--responsiveUnit) * 3);
     // width: calc(var(--responsiveUnit) * 3);
-    @include fixedHeight(calc(var(--responsiveUnit) * 3));
-    @include fixedWidth(calc(var(--responsiveUnit) * 3));
+    // @include fixedHeight(calc(var(--responsiveUnit) * 3));
+    // @include fixedWidth(calc(var(--responsiveUnit) * 3));
+    height: 10%;
+    width: 5%;
     opacity: 1;
   }
   to {
@@ -358,40 +362,102 @@
 
     .cardContent {
       height: 100%;
-      width: 66%;
+      width: 64%;
       animation: cardContentExpand;
       animation-timing-function: ease-in-out;
       animation-duration: 1.5s;
       animation-fill-mode: forwards;
       padding-inline: 2%;
+      padding-right: 4%;
 
       .cardName {
         height: 10%;
+        padding-bottom: 0.5%;
+        display: flex;
+        align-items: center;
+        box-sizing: border-box;
+        border-bottom: calc(var(--responsiveUnit) * 0.1) solid $light;
+
+        h2 {
+          font-size: calc(var(--responsiveUnit) * 1.5);
+        }
       }
 
       .cardDescription {
-        height: 40%;
+        height: 38.5%;
+        padding-block: 1%;
+        // box-sizing: border-box;
+
+        p {
+          font-size: calc(var(--responsiveUnit) * 1);
+          margin: 0;
+        }
+
+        .roleSpan {
+          font-weight: bolder;
+          &[isOdd="0"] {
+            color: #79a7d3;
+          }
+          &[isOdd="1"] {
+            color: #6883bc;
+          }
+
+          .separatorSpan {
+            color: $light;
+          }
+        }
       }
 
       .cardSocial {
-        height: 10%;
+        height: 12.5%;
+        padding-block: 1%;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        box-sizing: border-box;
+        border-top: calc(var(--responsiveUnit) * 0.1) solid $light;
+        border-bottom: calc(var(--responsiveUnit) * 0.1) solid $light;
+
+        a {
+          border: calc(var(--responsiveUnit) * 0.1) solid $medium;
+          height: 100%;
+          width: 8%;
+          margin-inline: 1%;
+          border-radius: 10px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          &:hover {
+            border: calc(var(--responsiveUnit) * 0.1) solid $light;
+            transition: all 250ms ease-in-out;
+            transform: scale(1.05);
+            cursor: pointer;
+          }
+
+          img {
+            height: 75%;
+            filter: invert(1);
+          }
+        }
       }
 
       .cardFormation {
-        height: 40%;
+        height: 35.5%;
       }
     }
 
     .cardClose {
       position: absolute;
-      top: 0;
+      top: 1%;
       right: 0;
       z-index: 1;
       display: flex;
       align-items: center;
       justify-content: center;
-      @include fixedHeight(calc(var(--responsiveUnit) * 3));
-      @include fixedWidth(calc(var(--responsiveUnit) * 3));
+      // @include fixedHeight(calc(var(--responsiveUnit) * 3));
+      // @include fixedWidth(calc(var(--responsiveUnit) * 3));
+      height: 10%;
+      width: 5%;
       animation: cardCloseExpand;
       animation-timing-function: ease-in-out;
       animation-duration: 1.5s;
@@ -401,6 +467,11 @@
         aspect-ratio: 1;
         width: 100%;
         filter: invert(1);
+        transition: all 200ms ease-in-out;
+        &:hover {
+          cursor: pointer;
+          filter: invert(41%) sepia(54%) saturate(3889%) hue-rotate(327deg) brightness(95%) contrast(94%);
+        }
       }
     }
   }
