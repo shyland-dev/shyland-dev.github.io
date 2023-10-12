@@ -327,34 +327,6 @@ app-root {
   }
 }
 
-@mixin customExpand($fromWidth: 0%, $toWidth: 100%, $fromHeight: 0%, $toHeight: 100%) {
-  @keyframes customExpand {
-    from {
-      width: $fromWidth;
-      height: $fromHeight;
-    }
-    to {
-      width: $toWidth;
-      height: $toHeight;
-    }
-  }
-}
-
-@mixin customContract($fromWidth: 100%, $toWidth: 0%, $fromHeight: 0%, $toHeight: 100%) {
-  @keyframes customContract {
-    from {
-      width: $fromWidth;
-      height: $fromHeight;
-      opacity: 1;
-    }
-    to {
-      width: $toWidth;
-      height: $toHeight;
-      opacity: 0;
-    }
-  }
-}
-
 @keyframes rainbowColor {
   100%,
   0% {
