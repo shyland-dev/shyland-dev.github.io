@@ -309,6 +309,46 @@ app-root {
   }
 }
 
+@keyframes expand {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes contract {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0%;
+  }
+}
+
+@mixin customExpand($fromWidth: 0%, $toWidth: 100%) {
+  @keyframes customExpand {
+    from {
+      width: $fromWidth;
+    }
+    to {
+      width: $toWidth;
+    }
+  }
+}
+
+@mixin customContract($fromWidth: 100%, $toWidth: 0%) {
+  @keyframes customContract {
+    from {
+      width: $fromWidth;
+    }
+    to {
+      width: $toWidth;
+    }
+  }
+}
+
 @keyframes rainbowColor {
   100%,
   0% {

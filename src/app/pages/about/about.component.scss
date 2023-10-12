@@ -57,20 +57,125 @@
   text-align: center;
 }
 
-.card {
+.cards {
+  @include fixedWidth(100%);
   display: flex;
-}
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 
-.cardAvatar {
-  border-radius: 70%;
-  margin-right: 2%;
-  margin-left: 2%;
-  margin-top: 1%;
-  margin-bottom: 2%;
-  box-shadow:
-    -2px 2px 2px 2px yellow,
-    -2px -6px 2px 2px orange,
-    2px 4px 2px 2px cyan;
-  aspect-ratio: 1;
-  @include fixedHeight(calc(var(--responsiveUnit) * 10));
+  --cardHeight: calc(var(--responsiveUnit) * 10);
+  --cardWidth: calc(var(--responsiveUnit) * 8);
+
+  .card {
+    // @include fixedHeight(var(--cardHeight));
+    height: var(--cardHeight);
+    // @include fixedWidth(var(--cardWidth));
+    width: var(--cardWidth);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 10px;
+    padding: 1%;
+    margin: 1%;
+    overflow: hidden;
+    border: calc(var(--responsiveUnit) * 0.2) solid $medium;
+    transition: all 250ms ease-in-out;
+    &:hover {
+      transform: scale(1.05);
+      cursor: pointer;
+      border: calc(var(--responsiveUnit) * 0.2) solid $light;
+
+      .cardAvatar {
+        img {
+          background: $light;
+          filter: grayscale(0);
+        }
+      }
+
+      .cardTitle {
+        h1 {
+          color: $light;
+        }
+      }
+    }
+    &:active {
+      transform: scale(0.95);
+    }
+
+    .cardAvatar {
+      @include fixedHeight(70%);
+      @include fixedWidth(100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      img {
+        @include fixedHeight(100%);
+        aspect-ratio: 1;
+        border-radius: 50%;
+        background: $medium;
+        transition: all 250ms ease-in-out;
+        filter: grayscale(0.5);
+      }
+    }
+
+    .cardTitle {
+      @include fixedHeight(30%);
+      @include fixedWidth(100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      h1 {
+        text-align: center;
+        margin: 0;
+        padding: 0;
+        font-size: calc(var(--responsiveUnit) * 1.3);
+        font-family: sans-serif;
+        color: $medium;
+        transition: all 250ms ease-in-out;
+      }
+    }
+  }
+
+  .card[expanded="true"] {
+    @include customExpand(--cardWidth, 90%);
+    animation: customExpand;
+    animation-timing-function: ease-in;
+    animation-duration: 1.5s;
+    animation-fill-mode: forwards;
+    border: calc(var(--responsiveUnit) * 0.2) solid $light;
+    &:hover {
+      transform: scale(1);
+      cursor: default;
+    }
+    &:active {
+      transform: scale(1);
+    }
+
+    .cardAvatar {
+      img {
+        background: $light;
+        filter: grayscale(0);
+      }
+    }
+
+    .cardTitle {
+      h1 {
+        color: $light;
+      }
+    }
+  }
+
+  .card[expanded="false"] {
+    @include customContract(--cardWidth, 0);
+    animation: customContract;
+    animation-timing-function: ease-in;
+    animation-duration: 1.5s;
+    animation-fill-mode: forwards;
+    padding: 0;
+    margin: 0;
+    border: 0;
+  }
 }

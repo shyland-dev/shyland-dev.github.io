@@ -40,59 +40,14 @@
     <hr>
   </div>
 
-  <!-- dudushy card -->
   <div class="cards">
-    <div class="card">
-      <img class="cardAvatar" alt="card-avatar" src="assets/imgs/PNGs/dudushy.png">
-
-      <div class="cardInfo-wrapper">
-        <h2 class="cardName">Eduardo "dudushy" Talarico</h2>
-
-        <hr>
-
-        <h2 class="cardRole">Founder</h2>
-
-        <p class="cardDesc">
-          <span style="color: greenyellow;">Fundador</span>
-          e
-          <span style="color: orange;">Co-idealizador</span>
-          da ShylandDev, possui vasta experiência no ramo de criação de aplicativos, sites,
-          dentre outras smart solutions para empresas pequeno e médio porte.<br>
-        </p>
-        <ul>
-          <li>Graduação Superior em Ciências da Computação pela Universidade Paulista;</li>
-          <li>Web Developer (Ionic and Angular);</li>
-        </ul>
+    <div class="card" *ngFor="let card of cardArray | keyvalue : defaultOrder" id="card{{card.key}}" (click)="expandCard(card.key)" [attr.expanded]="expandedCardIndex != '-1' ? expandedCardIndex == card.key : 'none'">
+      <div class=cardAvatar>
+        <img alt="avatar" src="{{card.value['img']}}">
       </div>
-    </div>
-  </div>
 
-  <!-- natzun card -->
-  <div class="cards">
-    <div class="card">
-      <img class="cardAvatar" alt="card-avatar" src="assets/imgs/PNGs/natzun.png">
-
-      <div class="cardInfo-wrapper">
-        <h2 class="cardName">Natan "Natzun" Zunfrilli</h2>
-
-        <hr>
-
-        <h2 class="cardRole">Co-founder</h2>
-
-        <p class="cardDesc">
-          <span style="color: greenyellow;">Co-fundador</span>
-          e
-          <span style="color: orange;">Co-idealizador</span>
-          da ShylandDev, possui 5 anos de experiência e atuação no ramo do direito imobiliário
-          registral, com desenvolvimento smart solutions para cartórios de Registro de Imóveis. Atuando
-          como Analista de implantação, suporte e desenvolvimento.<br>
-        </p>
-
-        <ul>
-          <li>Graduação Superior em Direito pelo Centro Universitário Barão de Mauá;</li>
-          <li>IT Security Specialist (database analysis and cyber attack);</li>
-          <li>C# Developer;</li>
-        </ul>
+      <div class="cardTitle">
+        <h1>{{card.value['mainRole']}}</h1>
       </div>
     </div>
   </div>
