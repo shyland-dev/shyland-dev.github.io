@@ -61,6 +61,8 @@ export class AppComponent {
     window.onload = () => {
       console.log(`[${this.title}#window.onload]`);
 
+      this.loadLastScrollPosition();
+
       this.stopLoading();
 
       this.currentPage = this.router.url.split('/')[1];
@@ -69,6 +71,12 @@ export class AppComponent {
       this.setupRainbowCanvas();
 
       this.detectScrollbar();
+    };
+
+    window.onbeforeunload = () => {
+      console.log(`[${this.title}#window.onbeforeunload]`);
+
+      this.saveLastScrollPosition();
     };
   }
 
@@ -198,5 +206,29 @@ export class AppComponent {
 
   openLink(url) {
     window.open(url, '_blank');
+  }
+
+  saveLastScrollPosition() {
+    console.log(`[${this.title}#saveLastScrollPosition]`);
+
+    const appRoot = document.querySelector('app-root');
+    console.log(`[${this.title}#saveLastScrollPosition] appRoot`, appRoot);
+
+    this.db.set('lastScrollPosition', appRoot.scrollTop);
+    console.log(`[${this.title}#saveLastScrollPosition] lastScrollPosition`, this.db.get('lastScrollPosition'));
+  }
+
+  loadLastScrollPosition() {
+    console.log(`[${this.title}#loadLastScrollPosition]`);
+
+    const appRoot = document.querySelector('app-root');
+    console.log(`[${this.title}#loadLastScrollPosition] appRoot`, appRoot);
+
+    const lastScrollPosition = this.db.get('lastScrollPosition');
+    console.log(`[${this.title}#loadLastScrollPosition] lastScrollPosition`, lastScrollPosition);
+
+    if (lastScrollPosition) {
+      appRoot.scrollTop = lastScrollPosition;
+    }
   }
 }
