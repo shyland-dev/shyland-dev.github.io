@@ -24,7 +24,8 @@ export class AboutComponent implements OnInit {
       social: [
         {
           network: 'GitHub',
-          url: 'https://github.com/dudushy'
+          url: 'https://github.com/dudushy',
+          icon: 'assets/imgs/SVGs/logo-github.svg'
         }
       ],
       formation: [
@@ -44,7 +45,8 @@ export class AboutComponent implements OnInit {
       social: [
         {
           network: 'GitHub',
-          url: 'https://github.com/Natzun'
+          url: 'https://github.com/Natzun',
+          icon: 'assets/imgs/SVGs/logo-github.svg'
         }
       ],
       formation: [

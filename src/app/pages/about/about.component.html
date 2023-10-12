@@ -42,12 +42,49 @@
 
   <div class="cards">
     <div class="card" *ngFor="let card of cardArray | keyvalue : defaultOrder" id="card{{card.key}}" (click)="expandCard(card.key)" [attr.expanded]="expandedCardIndex != '-1' ? expandedCardIndex == card.key : 'none'">
-      <div class=cardAvatar>
-        <img alt="avatar" src="{{card.value['img']}}">
+      <div class="cardPreview">
+        <div class=cardAvatar>
+          <img alt="avatar" src="{{card.value['img']}}">
+        </div>
+
+        <div class="cardTitle">
+          <h1>{{card.value['mainRole']}}</h1>
+        </div>
       </div>
 
-      <div class="cardTitle">
-        <h1>{{card.value['mainRole']}}</h1>
+      <div class="cardContent">
+        <div class="cardName">
+          <h2>{{card.value['name']}}</h2>
+        </div>
+
+        <div class="cardDescription">
+          <p>
+            <span *ngFor="let role of card.value['roles'] | keyvalue : defaultOrder">
+              {{role.value}}
+              <span *ngIf="role.key != card.value['roles'].length - 1"> | </span>
+            </span>
+
+            {{card.value['description']}}
+          </p>
+        </div>
+
+        <div class="cardSocial">
+          <a *ngFor="let network of card.value['social'] | keyvalue : defaultOrder" href="{{network.value['url']}}" title="{{network.value['network']}}" target="_blank">
+            <img alt="{{network.value['network']}}" src="{{network.value['icon']}}">
+          </a>
+        </div>
+
+        <div class="cardFormation">
+          <ul>
+            <li *ngFor="let formation of card.value['formation'] | keyvalue : defaultOrder">
+              <span>{{formation.value}}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cardClose">
+        <img alt="close" src="assets/imgs/SVGs/close.svg" (click)="expandCard('-1')">
       </div>
     </div>
   </div>
