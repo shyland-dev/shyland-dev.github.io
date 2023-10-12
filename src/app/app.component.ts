@@ -99,6 +99,11 @@ export class AppComponent {
 
     this.detectScrollbar();
 
+    const appRoot = document.querySelector('app-root');
+    console.log(`[${this.title}#redirectTo] appRoot`, appRoot);
+
+    appRoot.scrollTop = 0;
+
     this.updateView(this.title);
   }
 
