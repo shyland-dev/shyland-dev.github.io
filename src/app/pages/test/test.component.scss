@@ -1,17 +1,20 @@
 @import "/src/styles.scss";
 
 :host {
+  display: flex;
+  justify-content: center;
   height: max-content;
   width: 100%;
-  margin-top: calc(var(--responsiveUnit) * 5);
-  padding-block: 1%;
+  margin-top: var(--headerHeight);
   color: $light;
 }
 
 #content {
   height: 100%;
+  padding-block: 1%;
   width: 100%;
-  font-size: calc(var(--responsiveUnit) * 1.5);
+  max-width: 1200px;
+  font-size: calc(var(--responsiveUnit) * 0.8);
 }
 
 p.custom {
@@ -21,4 +24,18 @@ p.custom {
 img.custom {
   width: calc(var(--responsiveUnit) * 40);
   height: calc(var(--responsiveUnit) * 4);
+}
+
+.vendor {
+  @include allVendors(transition, all 10s ease-in-out);
+  background: lime;
+  &:hover {
+    @include allVendors(transform, rotate(145deg));
+  }
+}
+
+.animationTest {
+  @include fixedHeight(100vmax);
+  @include fixedWidth(100vmax);
+  background: $light;
 }

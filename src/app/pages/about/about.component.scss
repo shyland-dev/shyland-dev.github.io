@@ -1,66 +1,528 @@
 @import "/src/styles.scss";
 
+@mixin cardExpand($fromWidth: 0%, $toWidth: 100%, $fromHeight: 0%, $toHeight: 100%) {
+  @keyframes cardExpand {
+    from {
+      width: $fromWidth;
+      height: $fromHeight;
+    }
+    to {
+      width: $toWidth;
+      height: $toHeight;
+    }
+  }
+}
+
+@mixin cardExpandReverse($fromWidth: 0%, $toWidth: 100%, $fromHeight: 0%, $toHeight: 100%) {
+  @keyframes cardExpandReverse {
+    from {
+      width: $fromWidth;
+      height: $fromHeight;
+    }
+    to {
+      width: $toWidth;
+      height: $toHeight;
+    }
+  }
+}
+
+@mixin cardContract($fromWidth: 100%, $toWidth: 0%, $fromHeight: 0%, $toHeight: 100%) {
+  @keyframes cardContract {
+    from {
+      width: $fromWidth;
+      height: $fromHeight;
+      opacity: 1;
+    }
+    to {
+      width: $toWidth;
+      height: $toHeight;
+      opacity: 0;
+    }
+  }
+}
+
+@mixin cardContractReverse($fromWidth: 100%, $toWidth: 0%, $fromHeight: 0%, $toHeight: 100%) {
+  @keyframes cardContractReverse {
+    from {
+      width: $fromWidth;
+      height: $fromHeight;
+      opacity: 0;
+    }
+    to {
+      width: $toWidth;
+      height: $toHeight;
+      opacity: 1;
+    }
+  }
+}
+
+@keyframes cardPreviewExpand {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 30%;
+  }
+}
+
+@keyframes cardPreviewContract {
+  from {
+    width: 30%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes cardContentExpand {
+  from {
+    height: 0;
+    width: 0;
+  }
+  to {
+    height: 100%;
+    width: 66%;
+  }
+}
+
+@keyframes cardContentContract {
+  from {
+    height: 100%;
+    width: 66%;
+  }
+  to {
+    height: 0;
+    width: 0;
+  }
+}
+
+@keyframes cardCloseExpand {
+  from {
+    height: 0;
+    width: 0;
+    opacity: 0;
+  }
+  to {
+    // height: calc(var(--responsiveUnit) * 3);
+    // width: calc(var(--responsiveUnit) * 3);
+    // @include fixedHeight(calc(var(--responsiveUnit) * 3));
+    // @include fixedWidth(calc(var(--responsiveUnit) * 3));
+    height: 10%;
+    width: 5%;
+    opacity: 1;
+  }
+}
+
+@keyframes cardCloseContract {
+  from {
+    // height: calc(var(--responsiveUnit) * 3);
+    // width: calc(var(--responsiveUnit) * 3);
+    // @include fixedHeight(calc(var(--responsiveUnit) * 3));
+    // @include fixedWidth(calc(var(--responsiveUnit) * 3));
+    height: 10%;
+    width: 5%;
+    opacity: 1;
+  }
+  to {
+    height: 0;
+    width: 0;
+    opacity: 0;
+  }
+}
+
 :host {
+  display: flex;
+  justify-content: center;
   height: max-content;
   width: 100%;
-  margin-top: calc(var(--responsiveUnit) * 5);
-  padding-block: 1%;
+  margin-top: var(--headerHeight);
   color: $light;
 }
 
 #content {
   height: 100%;
+  padding-block: 1%;
   width: 100%;
+  max-width: 1200px;
+  font-size: calc(var(--responsiveUnit) * 0.8);
+  backdrop-filter: blur(10px);
+}
+
+#quemSomos {
+  //allign page
+  margin-top: 1.5%;
+  margin-left: 40%;
+  margin-right: 40%;
+  margin-bottom: 2%;
+  min-height: 20vh;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  display: flex;
+  flex-direction: column;
+
+  //border
+  border: calc(var(--responsiveUnit) * 0.3) solid transparentize($color: $dark, $amount: 0.5);
+  border-radius: 315px;
+
+  // font
   font-size: calc(var(--responsiveUnit) * 1.5);
+  overflow: hidden;
+  &:hover {
+    border: calc(var(--responsiveUnit) * 0.3) solid $light;
+    transition: 350ms;
+    transform: scale(1.05);
+    cursor: pointer;
+  }
 }
 
-#quemSomos{
-    //allign page
-    margin-top: 1.5%;
-    margin-left: 40%;
-    margin-right: 40%;
-    margin-bottom: 2%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 20vh;
-
-    //background
-    background: transparentize($color: $void, $amount: 0.6);
-    backdrop-filter: blur(10px);
-
-    //border
-    border: 1px solid $light;
-    border-radius: 35%;
-
-    // font
-    font-size: calc(var(--responsiveUnit) * 3.5);
-}
-
-#title{
+#title {
   display: flex;
   justify-content: center;
   align-items: center;
   // height: 10vh;
 }
 
-.classCenter{
+.classCenter {
   text-align: center;
-  background: transparentize($color: $void, $amount: 0.6);
-  backdrop-filter: blur(10px)
 }
 
-.card{
+.cards {
+  @include fixedWidth(100%);
   display: flex;
-}
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 
-.cardAvatar{
-  border-radius: 70%;
-  margin-right: 2%;
-  margin-left: 2%;
-  margin-top: 1%;
-  box-shadow:
-        -2px 2px 2px 2px yellow,
-        -2px -6px 2px 2px orange,
-        2px 4px 2px 2px cyan;
+  --cardHeight: calc(var(--responsiveUnit) * 10);
+  --cardWidth: calc(var(--responsiveUnit) * 8);
+
+  .card {
+    position: relative;
+    // @include fixedHeight(var(--cardHeight));
+    // @include fixedWidth(var(--cardWidth));
+    height: var(--cardHeight);
+    width: var(--cardWidth);
+    display: flex;
+    border-radius: 10px;
+    padding: 1%;
+    margin: 1%;
+    overflow: hidden;
+    border: calc(var(--responsiveUnit) * 0.2) solid $medium;
+    transition: all 250ms ease-in-out;
+    &:hover {
+      transform: scale(1.05);
+      cursor: pointer;
+      border: calc(var(--responsiveUnit) * 0.2) solid $light;
+
+      .cardPreview {
+        .cardAvatar {
+          img {
+            background: $light;
+            filter: grayscale(0);
+          }
+        }
+
+        .cardTitle {
+          h1 {
+            color: $light;
+          }
+        }
+      }
+    }
+    &:active {
+      transform: scale(0.95);
+    }
+
+    .cardOpen {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+    }
+
+    .cardPreview {
+      // @include fixedHeight(100%);
+      // @include fixedWidth(100%);
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+
+      .cardAvatar {
+        @include fixedHeight(70%);
+        @include fixedWidth(100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img {
+          @include fixedWidth(85%);
+          aspect-ratio: 1;
+          border-radius: 50%;
+          background: $medium;
+          transition: all 250ms ease-in-out;
+          filter: grayscale(0.5);
+        }
+      }
+
+      .cardTitle {
+        @include fixedHeight(30%);
+        @include fixedWidth(100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        h1 {
+          text-align: center;
+          margin: 0;
+          padding: 0;
+          font-size: calc(var(--responsiveUnit) * 1.3);
+          font-family: sans-serif;
+          color: $medium;
+          transition: all 250ms ease-in-out;
+        }
+      }
+    }
+
+    .cardContent,
+    .cardClose {
+      height: 0;
+      width: 0;
+      overflow: hidden;
+    }
+  }
+
+  .card[expanded="true"] {
+    @include cardExpand(--cardWidth, 90%, --cardHeight, calc(var(--cardHeight) * 2.5));
+    animation: cardExpand;
+    animation-timing-function: ease-in-out;
+    animation-duration: 1.5s;
+    animation-fill-mode: forwards;
+    border: calc(var(--responsiveUnit) * 0.2) solid $light;
+    &:hover {
+      transform: scale(1);
+      cursor: default;
+    }
+    &:active {
+      transform: scale(1);
+    }
+    &.reverse {
+      @include cardExpandReverse(90%, --cardWidth, calc(var(--cardHeight) * 2.5), --cardHeight);
+      animation: cardExpandReverse;
+      animation-timing-function: ease-in-out;
+      animation-duration: 1.5s;
+      animation-fill-mode: forwards;
+
+      .cardPreview {
+        animation: cardPreviewContract;
+        animation-timing-function: ease-in-out;
+        animation-duration: 1.5s;
+        animation-fill-mode: forwards;
+      }
+
+      .cardContent {
+        animation: cardContentContract;
+        animation-timing-function: ease-in-out;
+        animation-duration: 1.5s;
+        animation-fill-mode: forwards;
+      }
+
+      .cardClose {
+        animation: cardCloseContract;
+        animation-timing-function: ease-in-out;
+        animation-duration: 1.5s;
+        animation-fill-mode: forwards;
+      }
+    }
+
+    .cardOpen {
+      display: none;
+    }
+
+    .cardPreview {
+      width: 30%;
+      animation: cardPreviewExpand;
+      animation-timing-function: ease-in-out;
+      animation-duration: 1.5s;
+      animation-fill-mode: forwards;
+
+      .cardAvatar {
+        img {
+          background: $light;
+          filter: grayscale(0);
+        }
+      }
+
+      .cardTitle {
+        h1 {
+          color: $light;
+        }
+      }
+    }
+
+    .cardContent {
+      height: 100%;
+      width: 64%;
+      animation: cardContentExpand;
+      animation-timing-function: ease-in-out;
+      animation-duration: 1.5s;
+      animation-fill-mode: forwards;
+      padding-inline: 2%;
+      padding-right: 4%;
+
+      .cardName {
+        height: 10%;
+        padding-bottom: 0.5%;
+        display: flex;
+        align-items: center;
+        box-sizing: border-box;
+        border-bottom: calc(var(--responsiveUnit) * 0.1) solid $light;
+
+        h2 {
+          font-size: calc(var(--responsiveUnit) * 1.1);
+          margin: 0;
+
+          @media (orientation: portrait) {
+            font-size: calc(var(--responsiveUnit) * 1);
+          }
+        }
+      }
+
+      .cardDescription {
+        height: 38.5%;
+        padding-block: 1%;
+        // box-sizing: border-box;
+
+        p {
+          font-size: calc(var(--responsiveUnit) * 0.85);
+          margin: 0;
+
+          @media (orientation: portrait) {
+            font-size: calc(var(--responsiveUnit) * 0.8);
+          }
+        }
+
+        .roleSpan {
+          font-weight: bolder;
+          &[isOdd="0"] {
+            color: #79a7d3;
+          }
+          &[isOdd="1"] {
+            color: #6883bc;
+          }
+
+          .separatorSpan {
+            color: $light;
+          }
+        }
+      }
+
+      .cardSocial {
+        height: 12.5%;
+        padding-block: 1%;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        box-sizing: border-box;
+        border-top: calc(var(--responsiveUnit) * 0.1) solid $light;
+        border-bottom: calc(var(--responsiveUnit) * 0.1) solid $light;
+
+        a {
+          border: calc(var(--responsiveUnit) * 0.1) solid $medium;
+          height: 100%;
+          width: 8%;
+          margin-inline: 1%;
+          border-radius: 10px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          &:hover {
+            border: calc(var(--responsiveUnit) * 0.1) solid $light;
+            transition: all 250ms ease-in-out;
+            transform: scale(1.05);
+            cursor: pointer;
+          }
+
+          img {
+            height: 75%;
+            filter: invert(1);
+          }
+
+          @media (orientation: portrait) {
+            width: 10%;
+
+            img {
+              height: 60%;
+            }
+          }
+        }
+      }
+
+      .cardFormation {
+        height: 35.5%;
+
+        ul {
+          margin: 0;
+          padding: 0;
+
+          li {
+            list-style: inside;
+            padding-block: 1%;
+            // box-sizing: border-box;
+            font-size: calc(var(--responsiveUnit) * 0.6);
+
+            @media (orientation: portrait) {
+              font-size: calc(var(--responsiveUnit) * 0.8);
+            }
+          }
+        }
+      }
+    }
+
+    .cardClose {
+      position: absolute;
+      top: 1%;
+      right: 0;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      // @include fixedHeight(calc(var(--responsiveUnit) * 3));
+      // @include fixedWidth(calc(var(--responsiveUnit) * 3));
+      height: 10%;
+      width: 5%;
+      animation: cardCloseExpand;
+      animation-timing-function: ease-in-out;
+      animation-duration: 1.5s;
+      animation-fill-mode: forwards;
+
+      img {
+        aspect-ratio: 1;
+        width: 100%;
+        filter: invert(1);
+        transition: all 200ms ease-in-out;
+        &:hover {
+          cursor: pointer;
+          filter: invert(41%) sepia(54%) saturate(3889%) hue-rotate(327deg) brightness(95%) contrast(94%);
+        }
+      }
+    }
+  }
+
+  .card[expanded="false"] {
+    @include cardContract(--cardWidth, 0, --cardHeight, 0);
+    animation: cardContract;
+    animation-timing-function: ease-in-out;
+    animation-duration: 1.5s;
+    animation-fill-mode: forwards;
+    padding: 0;
+    margin: 0;
+    &.reverse {
+      @include cardContractReverse(0, --cardWidth, 0, --cardHeight);
+      animation: cardContractReverse;
+      animation-timing-function: ease-in-out;
+      animation-duration: 1.5s;
+      animation-fill-mode: forwards;
+    }
+  }
 }

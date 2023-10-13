@@ -61,12 +61,22 @@ export class AppComponent {
     window.onload = () => {
       console.log(`[${this.title}#window.onload]`);
 
+      this.loadLastScrollPosition();
+
+      this.stopLoading();
+
       this.currentPage = this.router.url.split('/')[1];
       if (this.currentPage == '' || this.currentPage == 'home') window.history.pushState({}, '', '/');
 
       this.setupRainbowCanvas();
 
       this.detectScrollbar();
+    };
+
+    window.onbeforeunload = () => {
+      console.log(`[${this.title}#window.onbeforeunload]`);
+
+      this.saveLastScrollPosition();
     };
   }
 
@@ -88,6 +98,11 @@ export class AppComponent {
     console.log(`[${this.title}#redirectTo] last_page`, [this.db.get('last_page')]);
 
     this.detectScrollbar();
+
+    const appRoot = document.querySelector('app-root');
+    console.log(`[${this.title}#redirectTo] appRoot`, appRoot);
+
+    appRoot.scrollTop = 0;
 
     this.updateView(this.title);
   }
@@ -169,11 +184,56 @@ export class AppComponent {
     console.log(`[${this.title}#setupRainbowCanvas] rainInterval`, this.rainInterval);
   }
 
+  stopLoading() {
+    console.log(`[${this.title}#stopLoading]`);
+
+    const loader = document.getElementById('loader');
+    console.log(`[${this.title}#stopLoading] loader`, loader);
+
+    const spinnerWrapper = document.getElementById('spinner-wrapper');
+    console.log(`[${this.title}#stopLoading] spinnerWrapper`, spinnerWrapper);
+
+    // loader.className = 'hide';
+    spinnerWrapper.className = 'hide';
+
+    setTimeout(() => {
+      loader.style.display = 'none';
+    }, 1500);
+  }
+
   detectScrollbar() {
     const appRoot = document.querySelector('app-root');
     console.log(`[${this.title}#detectScrollbar] appRoot`, appRoot);
 
     this.hasScrollbar = appRoot.scrollHeight > appRoot.clientHeight;
     console.log(`[${this.title}#detectScrollbar] hasScrollbar`, this.hasScrollbar);
+  }
+
+  openLink(url) {
+    window.open(url, '_blank');
+  }
+
+  saveLastScrollPosition() {
+    console.log(`[${this.title}#saveLastScrollPosition]`);
+
+    const appRoot = document.querySelector('app-root');
+    console.log(`[${this.title}#saveLastScrollPosition] appRoot`, appRoot);
+
+    this.db.set('lastScrollPosition', appRoot.scrollTop);
+    console.log(`[${this.title}#saveLastScrollPosition] lastScrollPosition`, this.db.get('lastScrollPosition'));
+  }
+
+  loadLastScrollPosition() {
+    console.log(`[${this.title}#loadLastScrollPosition]`);
+
+    const appRoot = document.querySelector('app-root');
+    console.log(`[${this.title}#loadLastScrollPosition] appRoot`, appRoot);
+
+    const lastScrollPosition = this.db.get('lastScrollPosition');
+    console.log(`[${this.title}#loadLastScrollPosition] lastScrollPosition`, lastScrollPosition);
+
+    if (lastScrollPosition) {
+      appRoot.scrollTop = lastScrollPosition;
+    }
   }
 }

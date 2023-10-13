@@ -12,6 +12,7 @@ $light: #f4f5f8;
 :root {
   --responsiveUnit: calc(1vmin + 1vmax);
   --scrollbarWidth: 10px;
+  --headerHeight: calc(var(--responsiveUnit) * 4);
 }
 
 html,
@@ -29,7 +30,6 @@ app-root {
 
 * {
   font-family: monospace;
-  transition: 50ms all;
 }
 
 //* BUTTON [START]
@@ -105,6 +105,26 @@ app-root {
 }
 //* SHY-TEMPLATES [END]
 
+//* MIXIN [START]
+@mixin fixedHeight($height) {
+  height: $height;
+  min-height: $height;
+  max-height: $height;
+}
+
+@mixin fixedWidth($width) {
+  width: $width;
+  min-width: $width;
+  max-width: $width;
+}
+
+@mixin allVendors($property, $args) {
+  @each $prefix in ("-webkit-", "-moz-", "-ms-", "-o-", "") {
+    #{$prefix + $property}: $args;
+  }
+}
+//* MIXIN [END]
+
 //* SCROLLBAR [START]
 ::-webkit-scrollbar {
   width: var(--scrollbarWidth);
@@ -163,6 +183,11 @@ app-root {
   font-family: "CaviarDreams";
   src: url("assets/fonts/caviar_dreams/CaviarDreams.ttf");
 }
+
+@font-face {
+  font-family: "AlteHaasGrotesk";
+  src: url("assets/fonts/alte_haas_grotesk/AlteHaasGroteskRegular.ttf");
+}
 //* FONTS [END]
 
 //* ANIMATIONS [START]
@@ -199,6 +224,106 @@ app-root {
   }
   to {
     transform: translateX(100%);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes scaleOut {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0);
+  }
+}
+
+@keyframes rotateIn {
+  0% {
+    transform: scale(0) rotate(-360deg);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+@keyframes rotateOut {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+  100% {
+    transform: scale(0) rotate(-360deg);
+  }
+}
+
+@keyframes paddingOut {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+  100% {
+    padding: 0%;
+    transform: scale(0) rotate(-360deg);
+  }
+}
+
+@keyframes puffIn {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+    filter: blur(20px);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+    filter: blur(0px);
+  }
+}
+
+@keyframes puffOut {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+    filter: blur(0px);
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0;
+    filter: blur(20px);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes expand {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes contract {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0%;
   }
 }
 

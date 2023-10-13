@@ -1,11 +1,23 @@
 <div id="content">
   <div id="gallery">
-    <div id="iframe-wrapper" class="blur">
-      <iframe id="gallery-iframe" scrolling="no" class="blur" (load)="unblurIframe()"></iframe>
+    <div id="galleryImg-wrapper">
+      <img id="galleryImg" class="blur" (load)="unblurGallery()">
+
+      <div id="galleryImgInfo">
+        <h1 (click)="app.openLink(projectArray[galleryIndex]['src'])" title="Visit {{projectArray[galleryIndex]['title']}}">
+          {{projectArray[galleryIndex]['title']}}
+        </h1>
+
+        <hr>
+
+        <p (click)="app.openLink(projectArray[galleryIndex]['src'])" title="Visit {{projectArray[galleryIndex]['title']}}">
+          {{projectArray[galleryIndex]['description']}}
+        </p>
+      </div>
     </div>
 
-    <img class="gallery-button" id="prev" src="assets/imgs/SVGs/chevron-back.svg" alt="prev" (click)="prevGalleryItem()">
-    <img class="gallery-button" id="next" src="assets/imgs/SVGs/chevron-forward.svg" alt="next" (click)="nextGalleryItem()">
+    <img *ngIf="galleryIndex != 0" class="gallery-button" id="prev" src="assets/imgs/SVGs/chevron-back.svg" alt="prev" (click)="prevGalleryItem()">
+    <img *ngIf="galleryIndex != projectArray.length - 1" class="gallery-button" id="next" src="assets/imgs/SVGs/chevron-forward.svg" alt="next" (click)="nextGalleryItem()">
     <img class="gallery-button" id="close" src="assets/imgs/SVGs/close.svg" alt="close" (click)="closeGallery()">
   </div>
 

@@ -2,7 +2,6 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { AppComponent } from '../../app.component';
 
-
 @Component({
   selector: 'app-contact-us',
   templateUrl: './contact-us.component.html',
@@ -35,5 +34,5 @@ export class ContactUsComponent implements OnInit {
     this.updateView();
   }
 
-  defaultOrder() { return 0;}
+  defaultOrder() { return 0; }
 }

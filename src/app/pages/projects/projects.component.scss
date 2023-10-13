@@ -1,17 +1,20 @@
 @import "/src/styles.scss";
 
 :host {
+  display: flex;
+  justify-content: center;
   height: max-content;
   width: 100%;
-  margin-top: calc(var(--responsiveUnit) * 5);
-  padding-block: 1%;
+  margin-top: var(--headerHeight);
   color: $light;
 }
 
 #content {
   height: 100%;
+  padding-block: 1%;
   width: 100%;
-  font-size: calc(var(--responsiveUnit) * 1.5);
+  max-width: 1200px;
+  font-size: calc(var(--responsiveUnit) * 0.8);
 }
 
 #gallery {
@@ -27,34 +30,77 @@
     display: flex !important;
   }
 
-  #iframe-wrapper {
+  #galleryImg-wrapper {
     position: relative;
     height: 90%;
     width: 85%;
-    background: $light;
+    border: calc(var(--responsiveUnit) * 0.1) solid $medium;
+    border-radius: 10px;
+    box-sizing: border-box;
     overflow: hidden;
-    &::before {
-      content: none;
-    }
-    &.blur {
-      background: $medium;
 
-      &::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        animation: pulse 1s infinite;
-      }
-    }
-
-    iframe {
+    img {
       height: 100%;
       width: 100%;
-      border: none;
-      pointer-events: none;
+      object-fit: contain;
+      object-position: center;
       transition: all 250ms ease-in-out;
       &.blur {
         filter: blur(50px);
+      }
+    }
+
+    #galleryImgInfo {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 16%;
+      width: 100%;
+      padding-top: 1%;
+      text-align: center;
+      color: $light;
+      background: transparentize($color: $dark, $amount: 0.1);
+
+      h1 {
+        margin: 0;
+        padding: 0;
+        font-size: calc(var(--responsiveUnit) * 2);
+        font-weight: lighter;
+        font-family: "AlteHaasGrotesk";
+        &:hover {
+          cursor: pointer;
+        }
+      }
+
+      hr {
+        margin: 0;
+        margin-inline: 2%;
+        margin-block: 0.2%;
+        border: calc(var(--responsiveUnit) * 0.15) solid $light;
+        border-radius: 10px;
+      }
+
+      p {
+        margin: 0;
+        margin-inline: 2%;
+        margin-top: 0.3%;
+        padding: 0;
+        font-size: calc(var(--responsiveUnit) * 1.1);
+        font-family: "Roboto";
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+
+      @media (orientation: portrait) {
+        height: 9%;
+
+        p {
+          font-size: calc(var(--responsiveUnit) * 1.3);
+        }
       }
     }
   }
@@ -84,7 +130,27 @@
 
   #close {
     top: 2%;
-    right: 2%;
+    right: 1%;
+  }
+
+  @media (orientation: portrait) {
+    #galleryImg-wrapper {
+      height: 85%;
+      width: 75%;
+    }
+
+    #prev {
+      left: 2%;
+    }
+
+    #next {
+      right: 2%;
+    }
+
+    #close {
+      top: 2%;
+      right: 2%;
+    }
   }
 }
 
@@ -100,11 +166,11 @@
     height: calc(var(--responsiveUnit) * 18);
     width: calc(var(--responsiveUnit) * 12);
     margin: 1%;
-    border: 4px solid transparentize($color: $dark, $amount: 0.5);
+    border: calc(var(--responsiveUnit) * 0.2) solid transparentize($color: $dark, $amount: 0.5);
     border-radius: 15px;
     overflow: hidden;
     &:hover {
-      border: 4px solid $light;
+      border: calc(var(--responsiveUnit) * 0.2) solid $light;
       transition: 350ms;
       transform: scale(1.05);
       cursor: pointer;
@@ -114,16 +180,14 @@
       position: relative;
       height: 60%;
       width: 100%;
-      border-top-left-radius: 15px;
-      border-top-right-radius: 15px;
+      @include allVendors(border-top-left-radius, 15px);
+      @include allVendors(border-top-right-radius, 15px);
       background-size: cover;
       background-position: center;
       &::before {
         content: "";
         position: absolute;
         inset: 0;
-        // height: calc(var(--responsiveUnit) * 16);
-        // width: calc(var(--responsiveUnit) * 12);
         animation: pulse 2s infinite;
       }
       &.loaded {
@@ -172,7 +236,7 @@
       hr {
         margin: 0;
         margin-inline: 2%;
-        border: 2px solid $light;
+        border: calc(var(--responsiveUnit) * 0.15) solid $light;
         border-radius: 10px;
       }
 
