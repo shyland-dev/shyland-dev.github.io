@@ -379,7 +379,12 @@
         border-bottom: calc(var(--responsiveUnit) * 0.1) solid $light;
 
         h2 {
-          font-size: calc(var(--responsiveUnit) * 1.5);
+          font-size: calc(var(--responsiveUnit) * 1.1);
+          margin: 0;
+
+          @media (orientation: portrait) {
+            font-size: calc(var(--responsiveUnit) * 1);
+          }
         }
       }
 
@@ -389,8 +394,12 @@
         // box-sizing: border-box;
 
         p {
-          font-size: calc(var(--responsiveUnit) * 1);
+          font-size: calc(var(--responsiveUnit) * 0.85);
           margin: 0;
+
+          @media (orientation: portrait) {
+            font-size: calc(var(--responsiveUnit) * 0.8);
+          }
         }
 
         .roleSpan {
@@ -438,11 +447,35 @@
             height: 75%;
             filter: invert(1);
           }
+
+          @media (orientation: portrait) {
+            width: 10%;
+
+            img {
+              height: 60%;
+            }
+          }
         }
       }
 
       .cardFormation {
         height: 35.5%;
+
+        ul {
+          margin: 0;
+          padding: 0;
+
+          li {
+            list-style: inside;
+            padding-block: 1%;
+            // box-sizing: border-box;
+            font-size: calc(var(--responsiveUnit) * 0.6);
+
+            @media (orientation: portrait) {
+              font-size: calc(var(--responsiveUnit) * 0.8);
+            }
+          }
+        }
       }
     }
 
